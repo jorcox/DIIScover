@@ -13,15 +13,17 @@ public class UsuarioBD {
         Consulta consultaUsuario=new Consulta(con,"Select * from Usuario where id='1'");
 
         consultaUsuario.execute();
-
+        //ATENCIÓN ESTO LO HAGO PORQUE ME TIENE QUE DEVOLVER ALGO, SINO NO HABRÍA QUE ESPERAR NADA
         while   (consultaUsuario.cursor==null){
             try{
                 Thread.sleep(50);
-                consultaUsuario.cursor.getResultSet().next();
-                usuario=consultaUsuario.cursor.getString("usuario");
             }catch (Exception a){}
-
     }
+        try{
+
+            consultaUsuario.cursor.getResultSet().next();
+            usuario=consultaUsuario.cursor.getString("usuario");
+        }catch (Exception a){}
         return usuario;
     }
 
