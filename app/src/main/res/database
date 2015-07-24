@@ -1,5 +1,5 @@
 database.mysql.host=85.251.34.199
 database.mysql.port=3306
-database.mysql.user=nombreUsuarioBD
-database.mysql.password=contrasenadelUsuarioBD
-database.mysql.dbname=nombreBD
+database.mysql.user=test
+database.mysql.password=test
+database.mysql.dbname=diiscover
