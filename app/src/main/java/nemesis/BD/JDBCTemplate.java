@@ -1,7 +1,10 @@
 package nemesis.BD;
 
 import java.io.InputStream;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 /**
@@ -70,7 +73,7 @@ public class JDBCTemplate {
         if (singleton == null){
             Properties prop = new Properties();
             try {
-                InputStream in = JDBCTemplate.class.getClassLoader().getResourceAsStream("database.properties");
+                InputStream in = JDBCTemplate.class.getClassLoader().getResourceAsStream("database");
                 prop.load(in);
                 singleton = configureMySQL(prop);
             } catch (Exception e) {

@@ -36,7 +36,6 @@ public class Consulta extends AsyncTask<Void, Void, Void> {
         return null;
     }
     protected void onPostExecute(Void... params) {
-        finalizar(cursor);
 
     }
 
