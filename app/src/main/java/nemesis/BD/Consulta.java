@@ -9,36 +9,25 @@ import android.util.Log;
  */
 public class Consulta extends AsyncTask<Void, Void, Void> {
 
-    JDBCTemplate con = null;
+
     String consulta="";
     Cursor cursor=null;
-    Cursor cursorTemp=null;
-    public Consulta(JDBCTemplate con, String consulta){
-        this.con = con;this.consulta=consulta;
+    public Consulta( String consulta){
+       this.consulta=consulta;
     }
-
 
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            con = JDBCTemplate.getJDBCTemplate();
-            this. cursorTemp=con.executeQuery(consulta);
-
-
-
+            JDBCTemplate con = JDBCTemplate.getJDBCTemplate();
+            this. cursor=con.executeQuery(consulta);
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
-
         }
-
-
-
-
         return null;
     }
     protected void onPostExecute(Void... params) {
-        cursor=cursorTemp;
-
     }
 
 }
