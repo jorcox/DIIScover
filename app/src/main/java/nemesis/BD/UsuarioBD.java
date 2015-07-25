@@ -1,7 +1,6 @@
 package nemesis.BD;
 
 
-
 /**
  * Created by inigo on 23/07/2015.
  */
@@ -13,18 +12,18 @@ public class UsuarioBD {
         Consulta consultaUsuario=new Consulta(con,"Select * from Usuario where id='1'");
 
         consultaUsuario.execute();
-        //ATENCIÓN ESTO LO HAGO PORQUE ME TIENE QUE DEVOLVER ALGO, SINO NO HABRÍA QUE ESPERAR NADA
-        while   (consultaUsuario.cursor==null){
-            try{
-                Thread.sleep(50);
-            }catch (Exception a){}
+        return usuario;
     }
+
+    public void finalizar(android.database.Cursor cursor){
+
         try{
 
-            consultaUsuario.cursor.getResultSet().next();
+            cursor.getResultSet().next();
+
             usuario=consultaUsuario.cursor.getString("usuario");
+
         }catch (Exception a){}
-        return usuario;
     }
 
 }
