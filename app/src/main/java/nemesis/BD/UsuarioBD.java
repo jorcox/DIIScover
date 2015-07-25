@@ -10,7 +10,7 @@ public class UsuarioBD {
     JDBCTemplate con = null;
     public  String unUsuario(){
         String usuario="";
-        Consulta consultaUsuario=new Consulta(con,"Select * from Usuario where id='1'");
+        Consulta consultaUsuario=new Consulta("Select * from Usuario where id='1'");
 
         consultaUsuario.execute();
         //ATENCIÓN ESTO LO HAGO PORQUE ME TIENE QUE DEVOLVER ALGO, SINO NO HABRÍA QUE ESPERAR NADA
