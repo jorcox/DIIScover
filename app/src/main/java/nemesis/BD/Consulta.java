@@ -1,7 +1,6 @@
 package nemesis.BD;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 
 /**
@@ -9,25 +8,35 @@ import android.util.Log;
  */
 public class Consulta extends AsyncTask<Void, Void, Void> {
 
-
+    JDBCTemplate con = null;
     String consulta="";
     Cursor cursor=null;
-    public Consulta( String consulta){
-       this.consulta=consulta;
+    Cursor cursorTemp=null;
+    public Consulta(JDBCTemplate con, String consulta){
+        this.con = con;this.consulta=consulta;
     }
+
 
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            JDBCTemplate con = JDBCTemplate.getJDBCTemplate();
-            this. cursor=con.executeQuery(consulta);
-            con.close();
+            con = JDBCTemplate.getJDBCTemplate();
+            this. cursorTemp=con.executeQuery(consulta);
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
+
         }
+
+
+
+
         return null;
     }
     protected void onPostExecute(Void... params) {
+
     }
 
 }
