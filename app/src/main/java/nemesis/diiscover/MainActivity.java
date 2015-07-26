@@ -60,10 +60,13 @@ public class MainActivity extends ActionBarActivity  implements AsyncResponse {
                 try{
 
                     ResultSet result= cursor.getResultSet ();
-                    result.next();
-                    String usuario=result.getString("usuario");
-                    text=(TextView) findViewById(R.id.textView);
-                    text.setText(usuario);
+                    while(result.next()){
+                        String usuario=result.getString("nip");
+                        text=(TextView) findViewById(R.id.textView);
+                        text.setText(usuario);
+                    }
+
+
             }  catch(Exception a){}
 
                 break;
