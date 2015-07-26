@@ -1,7 +1,6 @@
 package nemesis.BD;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 
 /**
@@ -37,7 +36,6 @@ public class Consulta extends AsyncTask<Void, Void, Void> {
         return null;
     }
     protected void onPostExecute(Void... params) {
-        cursor=cursorTemp;
 
     }
 
