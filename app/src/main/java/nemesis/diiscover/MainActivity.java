@@ -4,24 +4,32 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import nemesis.BD.UsuarioBD;
+import java.sql.ResultSet;
+
+import nemesis.AsyncResponse;
+import nemesis.BD.Consulta;
+import nemesis.BD.Cursor;
 
 
-public class MainActivity extends ActionBarActivity {
-
+public class MainActivity extends ActionBarActivity  implements AsyncResponse {
+    TextView text=null;Consulta consultaUsarios=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        UsuarioBD usuarioBD=new UsuarioBD();
 
-        Toast.makeText(getApplicationContext(), usuarioBD.unUsuario(),
-                Toast.LENGTH_LONG).show();
+
+        //¿COMO CARGAR UNA LISATA DE USUARIOS?
+         consultaUsarios = new Consulta("Rellenar lista usuarios","Select * from Usuario");
+        consultaUsarios.delegate = this;
+        consultaUsarios.execute();//mirar el metodo processFinish
     }
-
-
+    public void rellenarListaUsuarios(Cursor cursor) {
+        // Aquí rellenar codigo de rellenar cosas
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -42,5 +50,32 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void processFinish(Cursor cursor,String output){
+        switch (output) {
+            case "Rellenar lista usuarios":
+
+            //AQUI UTILIZAR consultaUusarios.cursor que ya estará inicializado
+                try{
+
+                    ResultSet result= cursor.getResultSet ();
+                    result.next();
+                    String usuario=result.getString("usuario");
+                    text=(TextView) findViewById(R.id.textView);
+                    text.setText(usuario);
+            }  catch(Exception a){}
+
+                break;
+            case "Rellenar lista otros":
+
+
+                break;
+
+            default:
+
+
+                break;
+        }
     }
 }
