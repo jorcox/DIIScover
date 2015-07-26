@@ -56,7 +56,7 @@ public class MainActivity extends ActionBarActivity  implements AsyncResponse {
         switch (output) {
             case "Rellenar lista usuarios":
 
-            //AQUI UTILIZAR consultaUusarios.cursor que ya estará inicializado
+            //AQUÍ UTILIZAR consultaUusarios.cursor que ya estará inicializado
                 try{
 
                     ResultSet result= cursor.getResultSet ();
