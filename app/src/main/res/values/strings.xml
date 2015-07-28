@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Strings de IncidenciaActivity -->
+    <string name="enviar_incidencia">Enviar incidencia</string>
+    <string name="boton_enviar_incidencia">Enviar</string>
+
 </resources>
