@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.sql.ResultSet;
 
@@ -14,26 +13,22 @@ import nemesis.BD.Consulta;
 import nemesis.BD.Cursor;
 
 
-public class MainActivity extends ActionBarActivity  implements AsyncResponse {
-    TextView text=null;Consulta consultaUsarios=null;
+public class listado_grado extends ActionBarActivity implements AsyncResponse {
+    Consulta consultaUsarios=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
-        //¿COMO CARGAR UNA LISATA DE USUARIOS?
-        consultaUsarios = new Consulta("Rellenar lista usuarios","Select * from Usuario");
+        setContentView(R.layout.activity_listado_grado);
+        consultaUsarios = new Consulta("Carreras","Select * from Carrera");
         consultaUsarios.delegate = this;
         consultaUsarios.execute();//mirar el metodo processFinish
     }
-    public void rellenarListaUsuarios(Cursor cursor) {
-        // Aquí rellenar codigo de rellenar cosas
-    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_listado_grado, menu);
         return true;
     }
 
@@ -54,23 +49,29 @@ public class MainActivity extends ActionBarActivity  implements AsyncResponse {
 
     public void processFinish(Cursor cursor,String output){
         switch (output) {
-            case "Rellenar lista usuarios":
+            case "Carreras":
 
-            //AQUÍ UTILIZAR consultaUusarios.cursor que ya estará inicializado
+                //AQUÍ UTILIZAR consultaUusarios.cursor que ya estará inicializado
                 try{
-
                     ResultSet result= cursor.getResultSet ();
                     while(result.next()){
-                        String usuario=result.getString("nip");
-                        text=(TextView) findViewById(R.id.textView);
-                        text.setText(usuario);
+                        //String usuario=result.getString("nip");
+                        /**
+                         * id INT AUTO_INCREMENT,
+                         nombre VARCHAR(100),
+                         coordinador VARCHAR(100),
+                         descripcion VARCHAR(1000),
+                         linkExterno VARCHAR(150),
+                         fotoURL VARCHAR(100),
+                         cuatrimestres INT,
+                         */
                     }
 
 
-            }  catch(Exception a){}
+                }  catch(Exception a){}
 
                 break;
-            case "Rellenar lista otros":
+            case "otros":
 
 
                 break;
