@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.text.DateFormat;
@@ -26,54 +28,37 @@ public class IncidenciaActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_incidencia);
-        myOnClickListener = new MyOnClickListener(this);
 
-        db = JDBCTemplate.getJDBCTemplate();
-    }
+        Button enviar = (Button) findViewById(R.id.boton_enviar_incidencia);
+        enviar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editDescripcion;
+                String sentencia, fecha, descripcion;
+                int res, usuario;
 
-    /**
-     * Contiene el listener del boton de envio de incidencias
-     */
-    private class MyOnClickListener implements View.OnClickListener {
+                Log.d("TEST","Entra en onClick");
+                /* Insertar en BD */
+                editDescripcion = (EditText) findViewById(R.id.texto_incidencia);
+                descripcion = editDescripcion.getText().toString();
+                usuario = getUsuario();
+                fecha = getFecha();
+                sentencia = generarInsert(usuario, fecha, descripcion);
+                Log.d("TEST","Genera INSERT: " + sentencia);
+                Sentencia insercion = new Sentencia("",sentencia);
+                insercion.execute();
+                Log.d("TEST","Ejecuta INSERT");
 
-        private final Context context;
+                /* Enviar correo */
+                Mail mail = new Mail(IncidenciaActivity.this, usuario, fecha, descripcion);
+                mail.enviar();
+                Log.d("TEST", "Envia Mail");
 
-        private MyOnClickListener(Context context) {
-            this.context = context;
-        }
-
-        /**
-         * Al pulsar en Enviar, se inserta la incidencia en la tabla Incidencia de la
-         * base de datos, la cuenta de correo de incidencias se envia a si misma un
-         * correo con una copia de la incidencia y se vuelve a la actividad anterior.
-         */
-        @Override
-        public void onClick(View v) {
-            EditText editDescripcion;
-            String sentencia, fecha, descripcion;
-            int res, usuario;
-
-            /* Insertar en BD */
-            editDescripcion = (EditText) findViewById(R.id.texto_incidencia);
-            descripcion = editDescripcion.getText().toString();
-            usuario = getUsuario();
-            fecha = getFecha();
-            sentencia = generarInsert(usuario, fecha, descripcion);
-
-            res = db.executeSentence(sentencia);
-            if (res<0) {
-                /* Tratar casos de error */
+                finish();
             }
-            db.close();
-
-            /* Enviar correo */
-            Mail mail = new Mail(IncidenciaActivity.this, usuario, fecha, descripcion);
-            mail.enviar();
-
-            finish();
-        }
-
+        });
     }
+
+
 
     /**
      * Dados el usuario que genera la incidencia, la fecha actual y la descripcion de la
