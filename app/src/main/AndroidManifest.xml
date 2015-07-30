@@ -18,12 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".Cuatrimestres"
-            android:label="@string/title_activity_cuatrimestres" >
-        </activity>
-        <activity
-            android:name=".listado_grado"
+            android:name=".CarreraListadoActivity"
             android:label="@string/title_activity_listado_grado" >
         </activity>
     </application>
