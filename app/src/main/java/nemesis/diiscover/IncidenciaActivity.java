@@ -1,10 +1,8 @@
 package nemesis.diiscover;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,8 +20,6 @@ import nemesis.BD.*;
 public class IncidenciaActivity extends Activity {
 
     private static final String INFO_USUARIO = "INFO_USUARIO";
-    private JDBCTemplate db;
-    private static View.OnClickListener myOnClickListener;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,31 +30,25 @@ public class IncidenciaActivity extends Activity {
             public void onClick(View v) {
                 EditText editDescripcion;
                 String sentencia, fecha, descripcion;
-                int res, usuario;
+                int usuario;
 
-                Log.d("TEST","Entra en onClick");
                 /* Insertar en BD */
                 editDescripcion = (EditText) findViewById(R.id.texto_incidencia);
                 descripcion = editDescripcion.getText().toString();
                 usuario = getUsuario();
                 fecha = getFecha();
                 sentencia = generarInsert(usuario, fecha, descripcion);
-                Log.d("TEST","Genera INSERT: " + sentencia);
                 Sentencia insercion = new Sentencia("",sentencia);
                 insercion.execute();
-                Log.d("TEST","Ejecuta INSERT");
 
                 /* Enviar correo */
                 Mail mail = new Mail(IncidenciaActivity.this, usuario, fecha, descripcion);
                 mail.enviar();
-                Log.d("TEST", "Envia Mail");
 
                 finish();
             }
         });
     }
-
-
 
     /**
      * Dados el usuario que genera la incidencia, la fecha actual y la descripcion de la
@@ -81,8 +71,8 @@ public class IncidenciaActivity extends Activity {
      */
     private int getUsuario() {
         SharedPreferences settings = getSharedPreferences(INFO_USUARIO, 0);
-        int correo = settings.getInt("id_usuario", -1);
-        return correo;
+        int id = settings.getInt("id_usuario", -1);
+        return id;
     }
 
     /**
