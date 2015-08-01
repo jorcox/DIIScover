@@ -23,9 +23,12 @@ public class MainActivity extends ActionBarActivity   {
         setContentView(R.layout.activity_main);
 
 
-        //¿COMO CARGAR UNA LISATA DE USUARIOS?
+        /*
         MetodosAuxiliares Maux= new MetodosAuxiliares();
+      Maux.pasarURLaBlob("http://www.lineainformatica.org/wp-content/uploads/2013/04/fondo1.jpg",2);
+        Maux.pasarURLaBlob("http://fress.co/wp-content/uploads/2014/09/39-cursos-gratis-informatica1.jpg",1);
 
+        //¿COMO CARGAR UNA LISATA DE USUARIOS?
         Cursor cursor=Maux.Consulta("Select * from Usuario");
         try{
 
@@ -34,10 +37,16 @@ public class MainActivity extends ActionBarActivity   {
                 String usuario=result.getString("nip");
                 text=(TextView) findViewById(R.id.textView);
                 text.setText(usuario);
+                 }  catch(Exception a){
+            String e=a.getMessage();
+        }
             }
+*/
+            Intent i = new Intent(this, CarreraListadoActivity.class);
+
+            startActivity(i);
 
 
-        }  catch(Exception a){}
     }
     public void rellenarListaUsuarios(Cursor cursor) {
         // Aquí rellenar codigo de rellenar cosas
@@ -65,9 +74,6 @@ public class MainActivity extends ActionBarActivity   {
     }
 
     public void irAcarreras(View view){
-        Intent i = new Intent(this, CarreraListadoActivity.class);
-
-        startActivity(i);
 
     }
 }

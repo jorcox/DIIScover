@@ -26,6 +26,7 @@ public class ObtenerFotoInternet extends AsyncTask<Void, Void, Void> {
             HttpURLConnection conn = (HttpURLConnection) imageUrl.openConnection();
             conn.connect();
             imagen = BitmapFactory.decodeStream(conn.getInputStream());
+
         }catch (Exception a){}
         cancel(true);
         return null;

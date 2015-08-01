@@ -17,10 +17,10 @@ public class Consulta extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
+        JDBCTemplate con =null;
         try {
-            JDBCTemplate con = JDBCTemplate.getJDBCTemplate();
+              con = JDBCTemplate.getJDBCTemplate();
             this. cursor = con.executeQuery(consulta);
-            con.close();
 
         } catch (Exception e) {
             e.printStackTrace();

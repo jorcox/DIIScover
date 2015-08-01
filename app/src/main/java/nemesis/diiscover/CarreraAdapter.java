@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
@@ -29,19 +28,28 @@ public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
     @Override
     public void onBindViewHolder(CarreraViewHolder contactViewHolder, int i) {
         Carrera carrera = carreras.get(i);
-        contactViewHolder.nombre.setText(carrera.nombre);
-        contactViewHolder.coordinador.setText(carrera.coordinador);
-        contactViewHolder.id.setText(String.valueOf(carrera.id));
-      //  contactViewHolder.imagen.se
+        contactViewHolder.nombre.setText(carrera.tipoCarrera+ " en "+carrera.nombre);
+
+      contactViewHolder.id.setText(String.valueOf(carrera.id));
+
+
+
+        try {
+            byte[] data = carrera.imagen;
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data , 0, data .length);
+
+            contactViewHolder.imagen.setImageBitmap(bitmap);
+        } catch (Exception ex) {
+        }
+
+
         URL imageUrl = null;
         try {
-            imageUrl = new URL(carrera.fotoURL);
-            HttpURLConnection conn = (HttpURLConnection) imageUrl.openConnection();
-            conn.connect();
+
             MetodosAuxiliares Maux= new MetodosAuxiliares();
-            Bitmap loadedImage = Maux.cargarFoto(carrera.fotoURL);
-               loadedImage = BitmapFactory.decodeStream(conn.getInputStream());
-            contactViewHolder.imagen.setImageBitmap(loadedImage);
+           // Bitmap loadedImage = Maux.cargarFoto(carrera.fotoURL);
+            //contactViewHolder.imagen.setImageBitmap(loadedImage);
+
         } catch (Exception e) {
         System.out.println(e.toString());
         }

@@ -1,5 +1,7 @@
 package nemesis.diiscover;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -8,6 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +23,15 @@ import nemesis.BD.Cursor;
 
 public class CarreraListadoActivity extends ActionBarActivity  {
     Consulta consultaUsarios=null; RecyclerView recList=null;
-    ArrayList<Carrera> listaCarreras= new ArrayList<Carrera>();
+    ArrayList<Carrera> listaCarreras= new ArrayList();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_carrera);
 
         MetodosAuxiliares Maux= new MetodosAuxiliares();
-        Cursor cursor=Maux.Consulta("Select * from Carrera");
+        Cursor cursor=Maux.Consulta("SELECT Carrera.nombre,Carrera.imagen,Carrera.descripcion,Carrera.linkExterno,Carrera.cuatrimestres ,Carrera.id,Carrera.coordinador, " +
+                "tipo_carrera.nombre as tipoCarrera FROM diiscover.carrera inner join tipo_carrera where id_tipo_carrera=tipo_carrera.id");
 
         try{
 
@@ -36,14 +42,23 @@ public class CarreraListadoActivity extends ActionBarActivity  {
                 String coordinador=result.getString("coordinador");
                 String descripcion=result.getString("descripcion");
                 String linkExterno=result.getString("linkExterno");
-                String fotoURL=result.getString("URL");
+                String tipoCarrera=result.getString("tipoCarrera");
                 int cuatrimestres=result.getInt("cuatrimestres");
-                Carrera carrera= new Carrera ( id,  nombre, coordinador, linkExterno,  descripcion,  fotoURL,  cuatrimestres);
+
+               // InputStream is = result.getBinaryStream("imagen");
+              //  BufferedInputStream  bufferedInputStream = new BufferedInputStream(is);
+
+               // Bitmap bmp = BitmapFactory.decodeStream(bufferedInputStream);
+                byte [] bytes = result.getBytes("imagen");
+
+                Carrera carrera= new Carrera ( id,  nombre, coordinador, linkExterno,  descripcion,  cuatrimestres,tipoCarrera,bytes);
                 listaCarreras.add(carrera);
             }
 
 
-        }  catch(Exception a){
+        }
+        catch(Exception a){
+            String aa= a.toString();
 
         }
 
@@ -53,8 +68,7 @@ public class CarreraListadoActivity extends ActionBarActivity  {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
         recList.setItemAnimator(new DefaultItemAnimator());
-        listaCarreras.add (new Carrera ( 1,  "Inforatica", "Coord", "link",  "Descrip",  "http://salud-bucal-b5.wikispaces.com/file/view/informatica.jpg/502178332/informatica.jpg",  1));
-        CarreraAdapter ca = new CarreraAdapter(listaCarreras);
+          CarreraAdapter ca = new CarreraAdapter(listaCarreras);
         recList.setAdapter(ca);
     }
 
