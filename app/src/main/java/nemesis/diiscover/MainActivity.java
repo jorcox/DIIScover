@@ -23,11 +23,10 @@ public class MainActivity extends ActionBarActivity   {
         setContentView(R.layout.activity_main);
 
 
-        /*
         MetodosAuxiliares Maux= new MetodosAuxiliares();
-      Maux.pasarURLaBlob("http://www.lineainformatica.org/wp-content/uploads/2013/04/fondo1.jpg",2);
-        Maux.pasarURLaBlob("http://fress.co/wp-content/uploads/2014/09/39-cursos-gratis-informatica1.jpg",1);
-
+      Maux.pasarURLaBlob("http://d1lalstwiwz2br.cloudfront.net/images_users/tiny_mce/PersianSultan/phpfJVW9D.png",2);
+        Maux.pasarURLaBlob("http://www.wallpaperup.com/uploads/wallpapers/2014/01/21/233480/1b1e60c91e96bc1aa8c4127e0989175d.jpg",1);
+/*
         //¿COMO CARGAR UNA LISATA DE USUARIOS?
         Cursor cursor=Maux.Consulta("Select * from Usuario");
         try{

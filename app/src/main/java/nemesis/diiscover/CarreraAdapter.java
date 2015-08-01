@@ -33,7 +33,7 @@ public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
       contactViewHolder.id.setText(String.valueOf(carrera.id));
 
 
-
+        //cargo imagen
         try {
             byte[] data = carrera.imagen;
             Bitmap bitmap = BitmapFactory.decodeByteArray(data , 0, data .length);
