@@ -8,4 +8,5 @@
     <string name="sample_text_header">texto</string>
     <string name="sample_text_footer">footer</string>
     <string name="title_activity_listado_grado">Grados y carreras</string>
+    <string name="title_activity_laboratorio_listado">LaboratorioListadoActivity</string>
 </resources>
