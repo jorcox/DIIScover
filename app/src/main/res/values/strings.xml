@@ -7,5 +7,6 @@
     <!-- Strings de IncidenciaActivity -->
     <string name="enviar_incidencia">Enviar incidencia</string>
     <string name="boton_enviar_incidencia">Enviar</string>
+    <string name="hint_enviar_incidencia">Describe aquí la incidencia...</string>
 
 </resources>

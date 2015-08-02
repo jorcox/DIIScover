@@ -9,20 +9,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/enviar_incidencia" />
+        android:id="@+id/enviar_incidencia"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/texto_incidencia"
         android:layout_weight="0.6"
-        android:maxLength="1000" />
+        android:maxLength="1000"
+        android:layout_margin="20dp"
+        android:hint="@string/hint_enviar_incidencia"
+        android:gravity="top" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/boton_enviar_incidencia"
         android:id="@+id/boton_enviar_incidencia"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp" />
 
 </LinearLayout>
