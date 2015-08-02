@@ -2,41 +2,40 @@ package nemesis.BD;
 
 import android.os.AsyncTask;
 
-import nemesis.AsyncResponse;
-import nemesis.diiscover.MainActivity;
-
+import java.util.concurrent.Semaphore;
 
 /**
  * Created by inigo on 19/07/2015.
  */
 public class Consulta extends AsyncTask<Void, Void, Void> {
 
-    public AsyncResponse delegate=null;
-    public String consulta="";
-    public String opcion="";
+    private String consulta="";
     public Cursor cursor=null;
-    public Consulta(String opcion,String consulta){
+    public Consulta(String consulta ){
         this.consulta=consulta;
-        this.opcion=opcion;
     }
-
 
     @Override
     protected Void doInBackground(Void... params) {
+        JDBCTemplate con =null;
         try {
-            JDBCTemplate con = JDBCTemplate.getJDBCTemplate();
-            this. cursor=con.executeQuery(consulta);
-            delegate.processFinish(this.cursor,opcion);
-            con.close();
+              con = JDBCTemplate.getJDBCTemplate();
+            this. cursor = con.executeQuery(consulta);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+            cancel(true);
         return null;
     }
-    protected void onPostExecute() {
-    //    delegate.processFinish(opcion);
+    @Override
+
+    protected void onPreExecute() {
     }
+
+
+
+
+
 
 }
