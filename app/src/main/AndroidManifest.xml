@@ -23,8 +23,8 @@
             android:label="@string/title_activity_listado_grado" >
         </activity>
         <activity
-            android:name=".LaboratorioListadoActivity"
-            android:label="@string/title_activity_laboratorio_listado" >
+            android:name=".AsignaturaListadoActivity"
+            android:label="@string/title_activity_asignatura_listado" >
         </activity>
     </application>
 

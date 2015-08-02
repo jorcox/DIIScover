@@ -3,10 +3,19 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Strings de Inigo -->
     <string name="title_activity_cuatrimestres">Cuatrimestres</string>
     <string name="sample_text_image">Imagen asignatura</string>
     <string name="sample_text_header">texto</string>
     <string name="sample_text_footer">footer</string>
     <string name="title_activity_listado_grado">Grados y carreras</string>
-    <string name="title_activity_laboratorio_listado">LaboratorioListadoActivity</string>
+    <string name="title_activity_laboratorio_listado">Laboratorios</string>
+    <string name="title_activity_asignatura_listado">Asignaturas</string>
+
+    <!-- Strings de IncidenciaActivity -->
+    <string name="enviar_incidencia">Enviar incidencia</string>
+    <string name="boton_enviar_incidencia">Enviar</string>
+    <string name="hint_enviar_incidencia">Describe aquí la incidencia...</string>
+
 </resources>

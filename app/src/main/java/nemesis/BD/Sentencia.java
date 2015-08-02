@@ -2,8 +2,6 @@ package nemesis.BD;
 
 import android.os.AsyncTask;
 
-
-
 /**
  * Created by javier on 29/07/15.
  */
@@ -29,3 +27,4 @@ public class Sentencia extends AsyncTask<Void, Void, Void> {
     }
 
 }
+

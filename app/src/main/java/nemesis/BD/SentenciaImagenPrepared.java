@@ -9,13 +9,13 @@ import java.sql.PreparedStatement;
 /**
  * Created by javier on 29/07/15.
  */
-public class SentenciaPrepared extends AsyncTask<Void, Void, Void> {
+public class SentenciaImagenPrepared extends AsyncTask<Void, Void, Void> {
     private String sentencia="";
     public PreparedStatement statement=null;
     private  JDBCTemplate con =null;
     private byte [] bArray=null;
 
-    public SentenciaPrepared(String sentencia, byte [] bArray){
+    public SentenciaImagenPrepared(String sentencia, byte[] bArray){
         this.sentencia=sentencia;
       this.bArray=bArray;
 

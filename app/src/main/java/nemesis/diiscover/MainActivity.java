@@ -1,12 +1,15 @@
 package nemesis.diiscover;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.sql.ResultSet;
 
 import nemesis.BD.Consulta;
 import nemesis.BD.Cursor;
@@ -19,12 +22,7 @@ public class MainActivity extends ActionBarActivity   {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        MetodosAuxiliares Maux= new MetodosAuxiliares();
-        Maux.pasarURLaBlob("http://d1lalstwiwz2br.cloudfront.net/images_users/tiny_mce/PersianSultan/phpfJVW9D.png",2);
-        Maux.pasarURLaBlob("http://www.wallpaperup.com/uploads/wallpapers/2014/01/21/233480/1b1e60c91e96bc1aa8c4127e0989175d.jpg",1);
-
-        /*
+/*
         //¿COMO CARGAR UNA LISATA DE USUARIOS?
         Cursor cursor=Maux.Consulta("Select * from Usuario");
         try{
@@ -38,9 +36,9 @@ public class MainActivity extends ActionBarActivity   {
             String e=a.getMessage();
         }
             }
-        */
-            Intent i = new Intent(this, CarreraListadoActivity.class);
-
+*/
+        //    Intent i = new Intent(this, CarreraListadoActivity.class);
+        Intent i = new Intent(this, AsignaturaListadoActivity.class);
             startActivity(i);
 
 
