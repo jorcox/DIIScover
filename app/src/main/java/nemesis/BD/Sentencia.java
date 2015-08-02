@@ -2,18 +2,16 @@ package nemesis.BD;
 
 import android.os.AsyncTask;
 
-import nemesis.AsyncResponse;
+
 
 /**
  * Created by javier on 29/07/15.
  */
 public class Sentencia extends AsyncTask<Void, Void, Void> {
     public String sentencia="";
-    public String opcion="";
 
-    public Sentencia(String opcion,String sentencia){
+    public Sentencia(String sentencia){
         this.sentencia=sentencia;
-        this.opcion=opcion;
     }
 
     @Override
@@ -31,3 +29,4 @@ public class Sentencia extends AsyncTask<Void, Void, Void> {
     }
 
 }
+

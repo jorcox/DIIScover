@@ -38,7 +38,7 @@ public class IncidenciaActivity extends Activity {
                 usuario = getUsuario();
                 fecha = getFecha();
                 sentencia = generarInsert(usuario, fecha, descripcion);
-                Sentencia insercion = new Sentencia("",sentencia);
+                Sentencia insercion = new Sentencia(sentencia);
                 insercion.execute();
 
                 /* Enviar correo */
