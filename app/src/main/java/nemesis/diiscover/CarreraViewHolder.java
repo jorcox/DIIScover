@@ -1,5 +1,6 @@
 package nemesis.diiscover;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ public class CarreraViewHolder extends RecyclerView.ViewHolder {
         id = (TextView) v.findViewById(R.id.textViewCarreraID);
         nombre = (TextView) v.findViewById(R.id.textViewCarreraNombre);
         imagen = (ImageView) v.findViewById(R.id.ImageViewCarreraImagen);
+
 
     }
 }

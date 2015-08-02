@@ -17,7 +17,8 @@
         android:layout_height="135dp"
         card_view:cardCornerRadius="5dp"
         card_view:cardBackgroundColor="#FFFFFF"
-        android:shadowColor="#ae010001">
+        android:shadowColor="#ae010001"
+        android:onClick="irAsignatuars">
 
         <ImageView
             android:id="@+id/ImageViewCarreraImagen"

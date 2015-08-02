@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,7 +22,7 @@ import nemesis.BD.Consulta;
 import nemesis.BD.Cursor;
 
 
-public class CarreraListadoActivity extends ActionBarActivity  {
+public class CarreraListadoActivity extends AppCompatActivity {
     Consulta consultaUsarios=null; RecyclerView recList=null;
     ArrayList<Carrera> listaCarreras= new ArrayList();
     @Override

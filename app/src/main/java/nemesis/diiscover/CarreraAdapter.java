@@ -54,7 +54,8 @@ public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
         }
         */
     }
-
+    //irAsignatuars
+    
     @Override
     public CarreraViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
