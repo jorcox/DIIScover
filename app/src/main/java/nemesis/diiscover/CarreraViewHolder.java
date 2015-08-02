@@ -17,9 +17,9 @@ public class CarreraViewHolder extends RecyclerView.ViewHolder {
     public CarreraViewHolder(View v) {
         super(v);
 
-        id = (TextView) v.findViewById(R.id.textViewLaboratorioID);
-        nombre = (TextView) v.findViewById(R.id.textViewLaboratorioNombre);
-        imagen = (ImageView) v.findViewById(R.id.ImageViewLaboratorioImagen);
+        id = (TextView) v.findViewById(R.id.textViewCarreraID);
+        nombre = (TextView) v.findViewById(R.id.textViewCarreraNombre);
+        imagen = (ImageView) v.findViewById(R.id.ImageViewCarreraImagen);
 
 
     }
