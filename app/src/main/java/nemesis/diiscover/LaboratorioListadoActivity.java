@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import nemesis.BD.Consulta;
 import nemesis.BD.Cursor;
 
-public class LaboratorioListado_Activity extends AppCompatActivity {
+public class LaboratorioListadoActivity extends AppCompatActivity {
 
     Consulta consultaLaboratorios = null;
     RecyclerView recList = null;
