@@ -14,7 +14,7 @@
         android:layout_marginBottom="3dp"
         android:layout_marginTop="1dp"
         android:layout_width="fill_parent"
-        android:layout_height="135dp"
+        android:layout_height="wrap_content"
         card_view:cardCornerRadius="5dp"
         card_view:cardBackgroundColor="#FFFFFF"
         android:shadowColor="#ae010001">
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="start"
-            android:layout_marginTop="102dp"
+            android:layout_marginTop="120dp"
             android:background="#c2000000"
             android:textColor="#FFFFFF"
             android:textSize="18dp"
