@@ -24,7 +24,10 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_asignatura_listado);
 
         MetodosAuxiliares Maux= new MetodosAuxiliares();
-        Cursor cursor=Maux.Consulta("SELECT * FROM asignatura where id_carrera=1");
+
+        Bundle extras = getIntent().getExtras();
+        Long idCar = extras.getLong("CarreraId", -1);
+        Cursor cursor=Maux.Consulta("SELECT * FROM asignatura where id_carrera="+idCar);
 
         try{
 
