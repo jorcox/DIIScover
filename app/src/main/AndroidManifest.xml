@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LaboratorioListado_Activity"
+            android:name=".LaboratorioListadoActivity"
             android:label="@string/title_activity_laboratorio_listado_" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
