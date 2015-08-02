@@ -1,15 +1,11 @@
 package nemesis.diiscover;
 
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.sql.ResultSet;
 
 import nemesis.BD.Consulta;
 import nemesis.BD.Cursor;
@@ -38,8 +34,8 @@ public class MainActivity extends ActionBarActivity   {
             }
 */
         //    Intent i = new Intent(this, CarreraListadoActivity.class);
-        Intent i = new Intent(this, AsignaturaListadoActivity.class);
-            startActivity(i);
+        /*Intent i = new Intent(this, AsignaturaListadoActivity.class);
+            startActivity(i);*/
 
 
     }
