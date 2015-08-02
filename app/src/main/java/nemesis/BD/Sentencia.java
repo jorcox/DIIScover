@@ -7,11 +7,9 @@ import android.os.AsyncTask;
  */
 public class Sentencia extends AsyncTask<Void, Void, Void> {
     public String sentencia="";
-    public String opcion="";
 
     public Sentencia(String sentencia){
         this.sentencia=sentencia;
-
     }
 
     @Override
@@ -29,3 +27,4 @@ public class Sentencia extends AsyncTask<Void, Void, Void> {
     }
 
 }
+
