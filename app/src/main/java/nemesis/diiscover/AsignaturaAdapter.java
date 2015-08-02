@@ -8,34 +8,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.net.URL;
 import java.util.List;
 
 /**
  * Created by inigo on 28/07/2015.
  */
-public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
-    private List<Carrera> carreras;
+public class AsignaturaAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
+    private List<Asignatura> asignaturas;
 
-    public CarreraAdapter(List<Carrera> carreras) {
-        this.carreras = carreras;
+    public AsignaturaAdapter(List<Asignatura> asignaturas) {
+        this.asignaturas = asignaturas;
     }
     @Override
     public int getItemCount() {
-        return carreras.size();
+        return asignaturas.size();
     }
 
     @Override
     public void onBindViewHolder(CarreraViewHolder contactViewHolder, int i) {
-        Carrera carrera = carreras.get(i);
-        contactViewHolder.nombre.setText(carrera.tipoCarrera+ " en "+carrera.nombre);
+        Asignatura asignatura = asignaturas.get(i);
+        contactViewHolder.nombre.setText(asignatura.nombre);
 
-      contactViewHolder.id.setText(String.valueOf(carrera.id));
+      contactViewHolder.id.setText(String.valueOf(asignatura.id));
 
 
         //cargo imagen
         try {
-            byte[] data = carrera.imagen;
+            byte[] data = asignatura.imagen;
             Bitmap bitmap = BitmapFactory.decodeByteArray(data , 0, data .length);
             contactViewHolder.imagen.setImageBitmap(bitmap);
         } catch (Exception ex) {
@@ -59,7 +58,7 @@ public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
     public CarreraViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
-                inflate(R.layout.carrera, viewGroup, false);
+                inflate(R.layout.asignatura, viewGroup, false);
 
         return new CarreraViewHolder(itemView);
     }
