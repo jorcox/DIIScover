@@ -1,5 +1,7 @@
 package nemesis.diiscover;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.net.URL;
 import java.util.List;
@@ -16,7 +19,6 @@ import java.util.List;
  */
 public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
     private List<Carrera> carreras;
-
     public CarreraAdapter(List<Carrera> carreras) {
         this.carreras = carreras;
     }
@@ -55,13 +57,13 @@ public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
         */
     }
     //irAsignatuars
-    
+
     @Override
     public CarreraViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.carrera, viewGroup, false);
-
+        itemView.setOnClickListener(CarreraListadoActivity.myOnClickListener);
         return new CarreraViewHolder(itemView);
     }
 
@@ -124,4 +126,5 @@ public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeFile(image, options);
     }
+
 }

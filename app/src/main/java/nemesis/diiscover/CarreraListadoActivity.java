@@ -1,5 +1,7 @@
 package nemesis.diiscover;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
@@ -10,6 +12,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -25,11 +29,13 @@ import nemesis.BD.Cursor;
 public class CarreraListadoActivity extends AppCompatActivity {
     Consulta consultaUsarios=null; RecyclerView recList=null;
     ArrayList<Carrera> listaCarreras= new ArrayList();
+    static View.OnClickListener myOnClickListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_carrera);
-
+        myOnClickListener = new MyOnClickListener(this);
         MetodosAuxiliares Maux= new MetodosAuxiliares();
         Cursor cursor=Maux.Consulta("SELECT Carrera.nombre,Carrera.imagen,Carrera.descripcion,Carrera.linkExterno,Carrera.cuatrimestres ,Carrera.id,Carrera.coordinador, " +
                 "tipo_carrera.nombre as tipoCarrera FROM diiscover.carrera inner join tipo_carrera where id_tipo_carrera=tipo_carrera.id");
@@ -94,6 +100,50 @@ public class CarreraListadoActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public class MyOnClickListener implements View.OnClickListener  {
+
+        private final Context context;
+
+        private MyOnClickListener(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public void onClick(View v) {
+            System.out.println("ON CLICK");
+            int selectedItemPosition = recList.getChildAdapterPosition(v);
+            RecyclerView.ViewHolder viewHolder
+                    = recList.findViewHolderForLayoutPosition(selectedItemPosition);
+
+            TextView textViewName
+                    = (TextView) viewHolder.itemView.findViewById(R.id.textViewCarreraID);
+            String selectedName = (String) textViewName.getText();
+            long idCarrera = Long.parseLong(selectedName);
+
+
+            Intent i = new Intent(CarreraListadoActivity.this, AsignaturaListadoActivity.class);
+            i.putExtra("CarreraId", idCarrera);
+            //Bundle mBundle = new Bundle();
+
+            //i.putExtra(AdaptadorPaquetes.KEY_ROWID, id);
+            //mBundle.putLong("clave", cardId);
+            //paqueteIntent.putExtras(mBundle);
+
+            /*adPaquetes.listarPaquete(cardId);
+
+            Cursor cur = adPaquetes.listarPaquete(cardId);
+            startManagingCursor(cur);
+            System.out.println(cur.getString(cur.getColumnIndex(adPaquetes.KEY_NOMBRE)));
+
+            System.out.println(cardId);*/
+
+             startActivity (i);
+
+
+        }
+
     }
 
 }
