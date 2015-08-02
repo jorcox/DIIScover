@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -18,15 +20,38 @@ import nemesis.BD.Cursor;
 public class AsignaturaListadoActivity extends AppCompatActivity {
     Consulta consultaUsarios=null; RecyclerView recList=null;
     ArrayList<Asignatura> listaAsignaturas= new ArrayList();
+    private Spinner cuatrimestres;
+    private ArrayAdapter adaptador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asignatura_listado);
 
+/*
+        //AQUI FALTA CARGAR DESDE LA VIEW EL SPINNER
+        int numeroCuatrimestresCarrera=8;//CARGAR DE BD
+
+
+
+
+        String[] cuatris=new String[numeroCuatrimestresCarrera];
+        for (int i=1;i<=numeroCuatrimestresCarrera;i++){
+            cuatris[i-1]=String.valueOf(i);
+        }
+        adaptador = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, cuatris);
+        adaptador.setDropDownViewResource(android.R.layout.
+                simple_spinner_dropdown_item);
+        cuatrimestres.setAdapter(adaptador);
+        cuatrimestres.setSelection(1);
+
+*/
         MetodosAuxiliares Maux= new MetodosAuxiliares();
 
         Bundle extras = getIntent().getExtras();
         Long idCar = extras.getLong("CarreraId", -1);
+        //necesitas filtrar cuatrimestre y especialidad.
+
         Cursor cursor=Maux.Consulta("SELECT * FROM asignatura where id_carrera="+idCar);
 
         try{
