@@ -37,8 +37,8 @@ public class MainActivity extends ActionBarActivity   {
         }
             }
 */
-            Intent i = new Intent(this, CarreraListadoActivity.class);
-
+        //    Intent i = new Intent(this, CarreraListadoActivity.class);
+        Intent i = new Intent(this, AsignaturaListadoActivity.class);
             startActivity(i);
 
 
