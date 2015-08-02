@@ -22,10 +22,6 @@
             android:name=".CarreraListadoActivity"
             android:label="@string/title_activity_listado_grado" >
         </activity>
-        <activity
-            android:name=".LaboratorioListadoActivity"
-            android:label="@string/title_activity_laboratorio_listado" >
-        </activity>
     </application>
 
 </manifest>
