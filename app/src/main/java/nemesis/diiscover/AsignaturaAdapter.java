@@ -58,7 +58,7 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
     public CarreraViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
-                inflate(R.layout.asignatura, viewGroup, false);
+                inflate(R.layout.asignaturas, viewGroup, false);
 
         return new CarreraViewHolder(itemView);
     }
