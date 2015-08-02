@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by inigo on 28/07/2015.
  */
-public class AsignaturaAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
+public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaViewHolder>{
     private List<Asignatura> asignaturas;
 
     public AsignaturaAdapter(List<Asignatura> asignaturas) {
@@ -25,7 +25,7 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(CarreraViewHolder contactViewHolder, int i) {
+    public void onBindViewHolder(AsignaturaViewHolder contactViewHolder, int i) {
         Asignatura asignatura = asignaturas.get(i);
         contactViewHolder.nombre.setText(asignatura.nombre);
 
@@ -55,12 +55,12 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
     }
 
     @Override
-    public CarreraViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public AsignaturaViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.asignaturas, viewGroup, false);
 
-        return new CarreraViewHolder(itemView);
+        return new AsignaturaViewHolder(itemView);
     }
 
 
