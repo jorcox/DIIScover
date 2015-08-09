@@ -21,21 +21,22 @@ public class MetodosAuxiliares {
         consultaUsarios.execute();//mirar el metodo processFinish
         try{
             double tiempo=System.currentTimeMillis();
-            while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<3000 ) {
-                Thread.sleep(80);
+            while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<8000 ) {
+                Thread.sleep(50);
             }
 
-        }catch(Exception a){    }
+        }catch(Exception a){
+            String ee=a.toString();  }
         return consultaUsarios.cursor;
     }
 
     public void pasarURLaBlob(String url, int id, String tabla){
-        ObtenerFotoInternet obtenerfoto= new ObtenerFotoInternet(url);
+        ObtenerFotoInternet obtenerfoto= new ObtenerFotoInternet(url,false);
         obtenerfoto.execute();
         try{
             double tiempo=System.currentTimeMillis();
-            while (obtenerfoto.imagen== null && Math.abs(tiempo-System.currentTimeMillis())<3000 ) {
-                Thread.sleep(80);
+            while (obtenerfoto.imagen== null && Math.abs(tiempo-System.currentTimeMillis())<7000 ) {
+                Thread.sleep(50);
             }
 
         }catch(Exception a){    }
@@ -50,7 +51,25 @@ public class MetodosAuxiliares {
                 String e=a.toString();
             }
         }
-    public void cargarImagen( Blob imagen){
+    public void pasarURLDirectorioaBlob(String url, int id, String tabla){
+        ObtenerFotoInternet obtenerfoto= new ObtenerFotoInternet(url,true);
+        obtenerfoto.execute();
+        try{
+            double tiempo=System.currentTimeMillis();
+            while (obtenerfoto.imagen== null && Math.abs(tiempo-System.currentTimeMillis())<7000 ) {
+                Thread.sleep(50);
+            }
 
+        }catch(Exception a){    }
+        try{
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            obtenerfoto.imagen.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            byte[] bArray = bos.toByteArray();
+            String update = "update " + tabla + " set imagen = ? where id = '" + id + "' ";
+            SentenciaImagenPrepared sentencia= new SentenciaImagenPrepared(update, bArray);
+            sentencia.execute();
+        }catch(Exception a){
+            String e=a.toString();
+        }
     }
 }

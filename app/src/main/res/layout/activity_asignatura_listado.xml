@@ -13,11 +13,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/TextViewCuatrimestre"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
+
         android:layout_marginStart="130dp"
-        android:textSize="20dp" />
+        android:textSize="14dp"
+        android:layout_alignTop="@+id/TextViewEspecilialidad"
+        android:layout_toEndOf="@+id/TextViewEspecilialidad"
+        android:layout_alignParentTop="true" />
     <TextView
         android:text="Especialidad"
         android:layout_width="wrap_content"
@@ -25,21 +26,22 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/TextViewEspecilialidad"
         android:layout_marginLeft="20dp"
-        android:layout_alignTop="@+id/TextViewCuatrimestre"
-        android:layout_toEndOf="@+id/TextViewCuatrimestre"
-        android:textSize="20dp" />
+        android:layout_marginRight="130dp"
+        android:textSize="14dp" />
     <Spinner
         android:id="@+id/spinnerespecialidad"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="14dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TextViewEspecilialidad"
-        android:layout_toEndOf="@+id/TextViewCuatrimestre" />
+        android:layout_toStartOf="@+id/spinnercuatri" />
     <Spinner
         android:id="@+id/spinnercuatri"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="2dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TextViewCuatrimestre"
-        android:layout_toStartOf="@+id/spinnerespecialidad" />
+        android:layout_alignTop="@+id/spinnerespecialidad"
+        android:layout_toEndOf="@+id/TextViewEspecilialidad" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/asignaturalist"
         android:layout_width="match_parent"

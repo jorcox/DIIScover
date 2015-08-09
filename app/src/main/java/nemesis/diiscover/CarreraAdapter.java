@@ -30,7 +30,7 @@ public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
     public void onBindViewHolder(CarreraViewHolder contactViewHolder, int i) {
         Carrera carrera = carreras.get(i);
         contactViewHolder.nombre.setText(carrera.tipoCarrera+ " en "+carrera.nombre);
-
+        contactViewHolder.cuatris.setText(String.valueOf(carrera.cuatrimestres));
       contactViewHolder.id.setText(String.valueOf(carrera.id));
 
 

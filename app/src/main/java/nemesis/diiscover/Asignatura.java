@@ -8,7 +8,6 @@ import java.util.Date;
 public class Asignatura {
     protected int id=0;
     protected int idCarrera=0;
-    protected byte []  imagen= null;
     protected String nombre="";
     protected String criteriosEvaluacion="";
     protected String descripcion="";
@@ -21,12 +20,11 @@ public class Asignatura {
     //protected String fechaExamen="";
 
     public Asignatura(int id,int idCarrera, String nombre, String criteros, String aula, String aulaExamen,int creditos, int cuatrimestre,Date fechaExamen,
-                     String link, String descripcion, byte[] imagen){
+                     String link, String descripcion){
         this.id=id;
         this.nombre=nombre;
         linkExterno=link;
         this.descripcion=descripcion;
-        this.imagen=imagen;
         this.idCarrera=idCarrera;
         this.criteriosEvaluacion=criteros;
         this.aula=aula;
