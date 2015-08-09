@@ -9,6 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -23,48 +27,69 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
     private Spinner cuatrimestres;
     private ArrayAdapter adaptadorCuatrimestres;
     private Spinner especialidad;
+    private Long idCar;
     private ArrayAdapter adaptadorEspecialidad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asignatura_listado);
+        Bundle extras = getIntent().getExtras();
+         idCar = extras.getLong("CarreraId", -1);
 
+        Integer numCuatris = extras.getInt("CarreraCuatris", 0);
 
-        //AQUI FALTA CARGAR DESDE LA VIEW EL SPINNER
-        int numeroCuatrimestresCarrera=8;//CARGAR DE BD
+        MetodosAuxiliares Maux= new MetodosAuxiliares();
+
         cuatrimestres = (Spinner) findViewById(R.id.spinnercuatri);
         especialidad = (Spinner) findViewById(R.id.spinnerespecialidad);
 
-
-        String[] cuatris=new String[numeroCuatrimestresCarrera];
-        for (int i=1;i<=numeroCuatrimestresCarrera;i++){
-            cuatris[i-1]=String.valueOf(i)+" Cuatrimestre";
+        String[] cuatris=new String[numCuatris];
+        for (int i=1;i<=numCuatris;i++){
+            cuatris[i-1]="     "+String.valueOf(i)+"     ";
         }
         adaptadorCuatrimestres = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, cuatris);
         adaptadorCuatrimestres.setDropDownViewResource(android.R.layout.
                 simple_spinner_dropdown_item);
         cuatrimestres.setAdapter(adaptadorCuatrimestres);
-        cuatrimestres.setSelection(1);
+        cuatrimestres.setSelection(0);
+        ArrayList<String> cuatri= new ArrayList<String>();
 
+        Cursor cursorEspec=Maux.Consulta("SELECT * FROM especialidad");
+        try{
 
-        String[] especias={"Computación","Ingeniería de Computadores","Computación","Computación"};
+            ResultSet result= cursorEspec.getResultSet ();
+            while(result.next()){
+                String nombre=result.getString("nombre");
+                cuatri.add(nombre);
+            }
+        }
+        catch(Exception a){
+            String aa= a.toString();
+
+        }
+
+       // String[] especias={"ComputaciÃ³n","IngenierÃ­a de Computadores","ComputaciÃ³n","ComputaciÃ³n"};
 
         adaptadorEspecialidad = new ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, especias);
+                android.R.layout.simple_spinner_item, cuatri);
         adaptadorEspecialidad.setDropDownViewResource(android.R.layout.
                 simple_spinner_dropdown_item);
         especialidad.setAdapter(adaptadorEspecialidad);
-        especialidad.setSelection(1);
+        especialidad.setSelection(0);
 
-        MetodosAuxiliares Maux= new MetodosAuxiliares();
 
-        Bundle extras = getIntent().getExtras();
-        Long idCar = extras.getLong("CarreraId", -1);
         //necesitas filtrar cuatrimestre y especialidad.
 
-        Cursor cursor=Maux.Consulta("SELECT * FROM asignatura where id_carrera="+idCar);
-
+        String consulta="Select especialidad.nombre as especialidad, asignatura.aula, asignatura.aulaExamen,asignatura.creditos," +
+                " asignatura.criteriosEvaluacion, asignatura.id_carrera,asignatura.cuatrimestre,asignatura.descripcion,asignatura.fechaExamen," +
+                " asignatura.id,asignatura.linkExterno,asignatura.nombre from asignatura_especialidad ases" +
+                " left join asignatura asignatura on asignatura.id=ases.id_asignatura" +
+                " left join especialidad especialidad on especialidad.id=ases.id_especialidad"+
+                " where id_carrera="+idCar+" and especialidad.nombre  like '"+  especialidad.getSelectedItem().toString()
+                +"' and asignatura.cuatrimestre="+ cuatrimestres.getSelectedItem().toString();
+        Cursor cursor=Maux.Consulta(consulta);
+        listaAsignaturas= new ArrayList();
         try{
 
             ResultSet result= cursor.getResultSet ();
@@ -80,7 +105,7 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
                 String aula=result.getString("aula");
                 String aulaExamen=result.getString("aulaExamen");
                 String link=result.getString("linkExterno");
-                byte [] bytes = result.getBytes("imagen");
+
 
                 // InputStream is = result.getBinaryStream("imagen");
                 //  BufferedInputStream  bufferedInputStream = new BufferedInputStream(is);
@@ -88,11 +113,12 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
                 // Bitmap bmp = BitmapFactory.decodeStream(bufferedInputStream);
 
                 Asignatura asignatura= new Asignatura (  id, idCarrera,  nombre,  criteros,  aula,  aulaExamen, creditos,  cuatrimestre, fechaExamen,
-                         link,  descripcion, bytes);
+                         link,  descripcion);
                 listaAsignaturas.add(asignatura);
             }
 
-
+            addListenerOnSpinnerItemSelection();
+            addListenerOnSpinnerItemSelectioncuatri();
         }
         catch(Exception a){
             String aa= a.toString();
@@ -100,7 +126,6 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
         }
 
         recList = (RecyclerView) findViewById(R.id.asignaturalist);
-        recList.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
@@ -110,6 +135,15 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
     }
 
 
+
+    public void addListenerOnSpinnerItemSelection() {
+        especialidad = (Spinner) findViewById(R.id.spinnerespecialidad);
+        especialidad.setOnItemSelectedListener(new AsignaturaCustomOnItemSelectedListener());
+    }
+    public void addListenerOnSpinnerItemSelectioncuatri() {
+        cuatrimestres = (Spinner) findViewById(R.id.spinnercuatri);
+        cuatrimestres.setOnItemSelectedListener(new AsignaturaCustomOnItemSelectedListener());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -131,5 +165,74 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public class AsignaturaCustomOnItemSelectedListener implements OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+            Toast.makeText(parent.getContext(),
+                    "OnItemSelectedListener : " + parent.getItemAtPosition(pos).toString(),
+                    Toast.LENGTH_SHORT).show();
+            listaAsignaturas= new ArrayList();
+            MetodosAuxiliares Maux= new MetodosAuxiliares();
+            String consulta="Select especialidad.nombre as especialidad, asignatura.aula, asignatura.aulaExamen,asignatura.creditos," +
+                    " asignatura.criteriosEvaluacion, asignatura.id_carrera,asignatura.cuatrimestre,asignatura.descripcion,asignatura.fechaExamen," +
+                    " asignatura.id,asignatura.linkExterno,asignatura.nombre from asignatura_especialidad ases" +
+                    " left join asignatura asignatura on asignatura.id=ases.id_asignatura" +
+                    " left join especialidad especialidad on especialidad.id=ases.id_especialidad"+
+                    " where id_carrera="+idCar+" and especialidad.nombre  like '"+  especialidad.getSelectedItem().toString()
+                    +"' and asignatura.cuatrimestre="+ cuatrimestres.getSelectedItem().toString();
+            Cursor cursor=Maux.Consulta(consulta);
+
+            try{
+
+                ResultSet result= cursor.getResultSet ();
+                while(result.next()){
+                    int idPropio=result.getInt("id");
+                    int idCarrera=result.getInt("id_carrera");
+                    int creditos=result.getInt("creditos");
+                    int cuatrimestre=result.getInt("cuatrimestre");
+                    Date fechaExamen=result.getDate("fechaExamen");
+                    String nombre=result.getString("nombre");
+                    String descripcion=result.getString("descripcion");
+                    String criteros=result.getString("criteriosEvaluacion");
+                    String aula=result.getString("aula");
+                    String aulaExamen=result.getString("aulaExamen");
+                    String link=result.getString("linkExterno");
+
+
+                    // InputStream is = result.getBinaryStream("imagen");
+                    //  BufferedInputStream  bufferedInputStream = new BufferedInputStream(is);
+
+                    // Bitmap bmp = BitmapFactory.decodeStream(bufferedInputStream);
+
+                    Asignatura asignatura= new Asignatura (  idPropio, idCarrera,  nombre,  criteros,  aula,  aulaExamen, creditos,  cuatrimestre, fechaExamen,
+                            link,  descripcion);
+                    listaAsignaturas.add(asignatura);
+                }
+                AsignaturaAdapter ca = new AsignaturaAdapter(listaAsignaturas);
+                recList.setAdapter(ca);
+                addListenerOnSpinnerItemSelection();
+                addListenerOnSpinnerItemSelectioncuatri();
+            }
+            catch(Exception a){
+                String aa= a.toString();
+
+            }
+
+           /* recList = (RecyclerView) findViewById(R.id.asignaturalist);
+            recList.setHasFixedSize(true);
+            LinearLayoutManager llm = new LinearLayoutManager(this);
+            llm.setOrientation(LinearLayoutManager.VERTICAL);
+            recList.setLayoutManager(llm);
+            recList.setItemAnimator(new DefaultItemAnimator());
+            AsignaturaAdapter ca = new AsignaturaAdapter(listaAsignaturas);
+            recList.setAdapter(ca);*/
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
     }
 }

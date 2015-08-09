@@ -13,37 +13,26 @@
         android:layout_margin="4dp"
         android:layout_marginBottom="3dp"
         android:layout_marginTop="1dp"
-        android:layout_width="365dp"
-        android:layout_height="135dp"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
         card_view:cardCornerRadius="5dp"
         card_view:cardBackgroundColor="#FFFFFF"
         android:shadowColor="#ae010001">
 
-        <ImageView
-            android:id="@+id/ImageViewAsignaturaImagen"
-            android:layout_width="fill_parent"
-            android:layout_height="155dp"
-            android:contentDescription="@string/sample_text_image"
-            android:layout_gravity="top"
-            android:src="@drawable/imgs_acceso_universidad"
-            android:adjustViewBounds="false"
-            android:scaleType="fitXY" />
 
-        <TextView
-            android:id="@+id/textViewAsignaturaNombre"
+
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="start"
-            android:layout_marginTop="102dp"
-            android:background="#c2000000"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            android:text=""
+            android:layout_height="match_parent"
+            android:text="New Button"
+            android:id="@+id/ButtonAsignaturaNombre"
             android:paddingBottom="5dp"
             android:paddingTop="4dp"
             android:textAlignment="center"
             android:paddingLeft="11dp"
-            android:paddingRight="4dp" />
+            android:paddingRight="4dp"
+            android:background="#9c0027ff"
+            android:singleLine="false" />
 
 
 

@@ -32,26 +32,7 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaViewHolder
       contactViewHolder.id.setText(String.valueOf(asignatura.id));
 
 
-        //cargo imagen
-        try {
-            byte[] data = asignatura.imagen;
-            Bitmap bitmap = BitmapFactory.decodeByteArray(data , 0, data .length);
-            contactViewHolder.imagen.setImageBitmap(bitmap);
-        } catch (Exception ex) {
-        }
 
-        /*
-        URL imageUrl = null;
-        try {
-
-            MetodosAuxiliares Maux= new MetodosAuxiliares();
-            Bitmap loadedImage = Maux.cargarFoto(carrera.fotoURL);
-            contactViewHolder.imagen.setImageBitmap(loadedImage);
-
-        } catch (Exception e) {
-        System.out.println(e.toString());
-        }
-        */
     }
 
     @Override
