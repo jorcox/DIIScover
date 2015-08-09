@@ -21,31 +21,42 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
     Consulta consultaUsarios=null; RecyclerView recList=null;
     ArrayList<Asignatura> listaAsignaturas= new ArrayList();
     private Spinner cuatrimestres;
-    private ArrayAdapter adaptador;
+    private ArrayAdapter adaptadorCuatrimestres;
+    private Spinner especialidad;
+    private ArrayAdapter adaptadorEspecialidad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asignatura_listado);
 
-/*
+
         //AQUI FALTA CARGAR DESDE LA VIEW EL SPINNER
         int numeroCuatrimestresCarrera=8;//CARGAR DE BD
-
-
+        cuatrimestres = (Spinner) findViewById(R.id.spinnercuatri);
+        especialidad = (Spinner) findViewById(R.id.spinnerespecialidad);
 
 
         String[] cuatris=new String[numeroCuatrimestresCarrera];
         for (int i=1;i<=numeroCuatrimestresCarrera;i++){
-            cuatris[i-1]=String.valueOf(i);
+            cuatris[i-1]=String.valueOf(i)+" Cuatrimestre";
         }
-        adaptador = new ArrayAdapter(this,
+        adaptadorCuatrimestres = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, cuatris);
-        adaptador.setDropDownViewResource(android.R.layout.
+        adaptadorCuatrimestres.setDropDownViewResource(android.R.layout.
                 simple_spinner_dropdown_item);
-        cuatrimestres.setAdapter(adaptador);
+        cuatrimestres.setAdapter(adaptadorCuatrimestres);
         cuatrimestres.setSelection(1);
 
-*/
+
+        String[] especias={"Computación","Ingeniería de Computadores","Computación","Computación"};
+
+        adaptadorEspecialidad = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, especias);
+        adaptadorEspecialidad.setDropDownViewResource(android.R.layout.
+                simple_spinner_dropdown_item);
+        especialidad.setAdapter(adaptadorEspecialidad);
+        especialidad.setSelection(1);
+
         MetodosAuxiliares Maux= new MetodosAuxiliares();
 
         Bundle extras = getIntent().getExtras();
