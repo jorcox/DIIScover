@@ -31,8 +31,9 @@
             android:textAlignment="center"
             android:paddingLeft="11dp"
             android:paddingRight="4dp"
-            android:background="#9c0027ff"
-            android:singleLine="false" />
+            android:background="#03A9F4"
+            android:singleLine="false"
+            android:onClick="botonSelecionado" />
 
 
 

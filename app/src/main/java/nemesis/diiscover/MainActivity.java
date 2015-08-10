@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
     }
     public void irAAsignaturas(View vista) {
         Intent i = new Intent(this, CarreraListadoActivity.class);
