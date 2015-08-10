@@ -11,6 +11,8 @@
     <string name="sample_text_footer">footer</string>
     <string name="title_activity_listado_grado">Grados y carreras</string>
     <string name="title_activity_asignatura_listado">Asignaturas</string>
+    <string name="cuatrimestreSpinner">Cuatrimestre</string>
+    <string name="especialdadSpinner">Especialidad</string>
 
     <!-- Strings de IncidenciaActivity -->
     <string name="enviar_incidencia">Enviar incidencia</string>

@@ -117,13 +117,17 @@ public class CarreraListadoActivity extends AppCompatActivity {
             RecyclerView.ViewHolder viewHolder
                     = recList.findViewHolderForLayoutPosition(selectedItemPosition);
 
-            TextView textViewName
+            TextView TextViewId
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewCarreraID);
-            String selectedName = (String) textViewName.getText();
-            long idCarrera = Long.parseLong(selectedName);
+            String selectedId = (String) TextViewId.getText();
+            long idCarrera = Long.parseLong(selectedId);
 
-
+            TextView TextViewCuatris
+                    = (TextView) viewHolder.itemView.findViewById(R.id.textViewCarreraCuatrimestres);
+            String selectedCuatris = (String) TextViewCuatris.getText();
+            Integer cuatrimestres = Integer.parseInt(selectedCuatris);
             Intent i = new Intent(CarreraListadoActivity.this, AsignaturaListadoActivity.class);
+            i.putExtra("CarreraCuatris", cuatrimestres);
             i.putExtra("CarreraId", idCarrera);
             //Bundle mBundle = new Bundle();
 

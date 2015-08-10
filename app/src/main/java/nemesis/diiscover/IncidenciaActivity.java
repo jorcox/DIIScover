@@ -3,9 +3,11 @@ package nemesis.diiscover;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,7 +19,7 @@ import nemesis.BD.*;
  * La clase representa la pantalla que contiene el formulario para registrar una
  * incidencia en la aplicación.
  */
-public class IncidenciaActivity extends Activity {
+public class IncidenciaActivity extends AppCompatActivity {
 
     private static final String INFO_USUARIO = "INFO_USUARIO";
 
@@ -44,8 +46,13 @@ public class IncidenciaActivity extends Activity {
                 /* Enviar correo */
                 Mail mail = new Mail(IncidenciaActivity.this, usuario, fecha, descripcion);
                 mail.enviar();
+                Toast toast1 =
+                        Toast.makeText(getApplicationContext(),
+                                "¡INCIDENCIA ENVIADA, GRACIAS!", Toast.LENGTH_SHORT);
 
+                toast1.show();
                 finish();
+
             }
         });
     }
