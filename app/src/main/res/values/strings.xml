@@ -19,5 +19,6 @@
     <string name="boton_enviar_incidencia">Enviar</string>
     <string name="hint_enviar_incidencia">Describe aquí la incidencia...</string>
     <string name="title_activity_laboratorio_listado_">Laboratorios</string>
+    <string name="title_activity_asignatura_pantalla">AsignaturaPantalla</string>
 
 </resources>

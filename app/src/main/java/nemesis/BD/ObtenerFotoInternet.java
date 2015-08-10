@@ -19,6 +19,12 @@ public class ObtenerFotoInternet extends AsyncTask<Void, Void, Void> {
      public String url ="";
     public  Bitmap imagen=null;
     private boolean directorio=false;
+
+    /**
+     *
+     * @param url es la url del directorio donde se aloja la imagen o la url de internet donde se aloja
+     * @param directorio es true si y solo si la iamgen se alloja en un directorio de tu ordenador
+     */
     public ObtenerFotoInternet(String url,boolean directorio ){
         this.url=url;this.directorio=directorio;
     }

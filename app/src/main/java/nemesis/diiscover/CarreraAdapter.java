@@ -18,16 +18,21 @@ import java.util.List;
  */
 public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
     private List<Carrera> carreras;
+    //constructor
     public CarreraAdapter(List<Carrera> carreras) {
         this.carreras = carreras;
     }
     @Override
+    //devuelve el numero de items en el adapter
     public int getItemCount() {
         return carreras.size();
     }
 
     @Override
     public void onBindViewHolder(CarreraViewHolder contactViewHolder, int i) {
+        /*
+        Primero se obtiene el elemento que se está enlazando y acontinuacion se da valor a las vistas  del Cardview en este caso
+         */
         Carrera carrera = carreras.get(i);
         contactViewHolder.nombre.setText(carrera.tipoCarrera+ " en "+carrera.nombre);
         contactViewHolder.cuatris.setText(String.valueOf(carrera.cuatrimestres));
@@ -42,29 +47,37 @@ public class CarreraAdapter extends RecyclerView.Adapter<CarreraViewHolder>{
         } catch (Exception ex) {
         }
 
-        /*
-        URL imageUrl = null;
-        try {
 
-            MetodosAuxiliares Maux= new MetodosAuxiliares();
-            Bitmap loadedImage = Maux.cargarFoto(carrera.fotoURL);
-            contactViewHolder.imagen.setImageBitmap(loadedImage);
-
-        } catch (Exception e) {
-        System.out.println(e.toString());
-        }
-        */
     }
-    //irAsignatuars
 
     @Override
     public CarreraViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        //obtienes el itemview que es el cardview
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.carrera, viewGroup, false);
+        //a dicha cardview le ligas el listener onclick que mas tarde se creara en CarreraListadoActivity
         itemView.setOnClickListener(CarreraListadoActivity.myOnClickListener);
+        //se devuelve
         return new CarreraViewHolder(itemView);
     }
+
+
+
+
+    /**
+     * A continuacion  se hallan metodos de eficiencia
+     */
+
+
+
+
+
+
+
+
+
+
 
 
     /**

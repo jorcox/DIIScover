@@ -25,7 +25,9 @@ import java.util.List;
 import nemesis.BD.Consulta;
 import nemesis.BD.Cursor;
 
-
+/**
+ * Mirar El liestado de asignaturas para ver comentarios
+ */
 public class CarreraListadoActivity extends AppCompatActivity {
     Consulta consultaUsarios=null; RecyclerView recList=null;
     ArrayList<Carrera> listaCarreras= new ArrayList();
@@ -35,8 +37,17 @@ public class CarreraListadoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_carrera);
-        myOnClickListener = new MyOnClickListener(this);
+        myOnClickListener = new MyOnClickListenerCarrera(this);
         MetodosAuxiliares Maux= new MetodosAuxiliares();
+
+        recList = (RecyclerView) findViewById(R.id.carreralist);
+        recList.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recList.setLayoutManager(llm);
+        recList.setItemAnimator(new DefaultItemAnimator());
+
+
         Cursor cursor=Maux.Consulta("SELECT Carrera.nombre,Carrera.imagen,Carrera.descripcion,Carrera.linkExterno,Carrera.cuatrimestres ,Carrera.id,Carrera.coordinador, " +
                 "tipo_carrera.nombre as tipoCarrera FROM diiscover.carrera inner join tipo_carrera where id_tipo_carrera=tipo_carrera.id");
 
@@ -68,13 +79,8 @@ public class CarreraListadoActivity extends AppCompatActivity {
             String aa= a.toString();
 
         }
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
-        recList = (RecyclerView) findViewById(R.id.carreralist);
-        recList.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recList.setLayoutManager(llm);
-        recList.setItemAnimator(new DefaultItemAnimator());
           CarreraAdapter ca = new CarreraAdapter(listaCarreras);
         recList.setAdapter(ca);
     }
@@ -101,18 +107,19 @@ public class CarreraListadoActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public class MyOnClickListener implements View.OnClickListener  {
+    /**
+     * Mirar El liestado de asignaturas para ver comentarios
+     */
+    public class MyOnClickListenerCarrera implements View.OnClickListener  {
 
         private final Context context;
 
-        private MyOnClickListener(Context context) {
+        private MyOnClickListenerCarrera(Context context) {
             this.context = context;
         }
 
         @Override
         public void onClick(View v) {
-            System.out.println("ON CLICK");
             int selectedItemPosition = recList.getChildAdapterPosition(v);
             RecyclerView.ViewHolder viewHolder
                     = recList.findViewHolderForLayoutPosition(selectedItemPosition);
@@ -126,22 +133,17 @@ public class CarreraListadoActivity extends AppCompatActivity {
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewCarreraCuatrimestres);
             String selectedCuatris = (String) TextViewCuatris.getText();
             Integer cuatrimestres = Integer.parseInt(selectedCuatris);
+
+            TextView TextViewNombre
+                    = (TextView) viewHolder.itemView.findViewById(R.id.textViewCarreraNombre);
+            String nombreCarrera = (String) TextViewNombre.getText();
+
+
             Intent i = new Intent(CarreraListadoActivity.this, AsignaturaListadoActivity.class);
             i.putExtra("CarreraCuatris", cuatrimestres);
             i.putExtra("CarreraId", idCarrera);
-            //Bundle mBundle = new Bundle();
+            i.putExtra("nombre", nombreCarrera);
 
-            //i.putExtra(AdaptadorPaquetes.KEY_ROWID, id);
-            //mBundle.putLong("clave", cardId);
-            //paqueteIntent.putExtras(mBundle);
-
-            /*adPaquetes.listarPaquete(cardId);
-
-            Cursor cur = adPaquetes.listarPaquete(cardId);
-            startManagingCursor(cur);
-            System.out.println(cur.getString(cur.getColumnIndex(adPaquetes.KEY_NOMBRE)));
-
-            System.out.println(cardId);*/
 
              startActivity (i);
 

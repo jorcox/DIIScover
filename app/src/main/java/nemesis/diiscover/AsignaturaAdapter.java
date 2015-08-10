@@ -23,7 +23,9 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaViewHolder
     public int getItemCount() {
         return asignaturas.size();
     }
-
+    /*
+           Primero se obtiene el elemento que se está enlazando y acontinuacion se da valor a las vistas  del Cardview en este caso
+            */
     @Override
     public void onBindViewHolder(AsignaturaViewHolder contactViewHolder, int i) {
         Asignatura asignatura = asignaturas.get(i);
@@ -37,12 +39,31 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaViewHolder
 
     @Override
     public AsignaturaViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        //obtienes el itemview que es el cardview
+
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.asignaturas, viewGroup, false);
-
+        //a dicha cardview le ligas el listener onclick que mas tarde se creara en AsignaturaListadoActivity
+        itemView.setOnClickListener(AsignaturaListadoActivity.myOnClickListener);
         return new AsignaturaViewHolder(itemView);
     }
+
+
+    /**
+     * A continuacion  se hallan metodos de eficiencia
+     */
+
+
+
+
+
+
+
+
+
+
+
 
 
     /**

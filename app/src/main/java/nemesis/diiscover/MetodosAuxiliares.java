@@ -16,14 +16,23 @@ import nemesis.BD.SentenciaImagenPrepared;
 
 public class MetodosAuxiliares {
     public Cursor Consulta(String consulta){
-
         Consulta consultaUsarios = new Consulta(consulta);
         consultaUsarios.execute();//mirar el metodo processFinish
         try{
             double tiempo=System.currentTimeMillis();
-            while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<8000 ) {
+            while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<4000 ) {
                 Thread.sleep(50);
             }
+            //si el primer intento no sale, se intenta de nuevo
+            if (consultaUsarios.cursor== null){
+                consultaUsarios = new Consulta(consulta);
+                consultaUsarios.execute();//mirar el metodo processFinish
+                tiempo=System.currentTimeMillis();
+                while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<3000 ) {
+                    Thread.sleep(50);
+                }
+            }
+
 
         }catch(Exception a){
             String ee=a.toString();  }

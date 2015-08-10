@@ -16,6 +16,9 @@ public class Consulta extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
+    /**
+     * Un proceso que realiza una consulta y se obtiene un cursor de ella
+     */
     protected Void doInBackground(Void... params) {
         JDBCTemplate con =null;
         try {
@@ -28,11 +31,6 @@ public class Consulta extends AsyncTask<Void, Void, Void> {
             cancel(true);
         return null;
     }
-    @Override
-
-    protected void onPreExecute() {
-    }
-
 
 
 
