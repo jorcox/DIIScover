@@ -105,9 +105,9 @@
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="15dp"
-            android:layout_below="@+id/textViewCriteriosAsignatura"
-            android:layout_alignParentEnd="true"
-            android:textColor="#757575" />
+            android:textColor="#757575"
+            android:layout_above="@+id/textView6"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -119,9 +119,9 @@
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="15dp"
-            android:layout_above="@+id/textViewAulaExamenAsignatura"
-            android:layout_alignParentEnd="true"
-            android:textColor="#757575" />
+            android:textColor="#757575"
+            android:layout_below="@+id/textViewAulaAsignatura"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="18dp"
-            android:layout_below="@+id/textView6"
+            android:layout_above="@+id/editText4"
             android:layout_alignParentStart="true" />
 
         <TextView
@@ -146,9 +146,9 @@
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="15dp"
-            android:layout_alignBottom="@+id/textView9"
-            android:layout_alignParentEnd="true"
-            android:textColor="#757575" />
+            android:textColor="#757575"
+            android:layout_below="@+id/textView6"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -160,7 +160,8 @@
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="18dp"
-            android:layout_below="@+id/textViewAulaExamenAsignatura" />
+            android:layout_alignBottom="@+id/textViewFechaExamenAsignatura"
+            android:layout_alignParentStart="true" />
 
              <TextView
                  android:layout_width="wrap_content"
@@ -172,16 +173,19 @@
                  android:textAlignment="center"
                  android:textIsSelectable="false"
                  android:textSize="15dp"
-                 android:layout_alignParentBottom="true"
-                 android:layout_alignParentEnd="true"
-                 android:textColor="#757575" />
+                 android:textColor="#757575"
+                 android:layout_alignBottom="@+id/editText4"
+                 android:layout_alignParentEnd="true" />
 
              <EditText
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:id="@+id/editText2"
                  android:editable="false"
-                 android:layout_above="@+id/textViewAulaExamenAsignatura"
+                 android:focusable="false"
+                 android:clickable="false"
+                 android:layout_alignBaseline="@+id/textViewCreditosAsignatura"
+                 android:layout_alignBottom="@+id/textViewCreditosAsignatura"
                  android:layout_alignParentStart="true"
                  android:layout_alignParentEnd="true" />
 
@@ -190,7 +194,9 @@
                  android:layout_height="wrap_content"
                  android:id="@+id/editText3"
                  android:editable="false"
-                 android:layout_alignBottom="@+id/textViewAulaExamenAsignatura"
+                 android:focusable="false"
+                 android:clickable="false"
+                 android:layout_below="@+id/textView6"
                  android:layout_alignParentStart="true"
                  android:layout_alignParentEnd="true" />
 
@@ -199,9 +205,14 @@
                  android:layout_height="wrap_content"
                  android:id="@+id/editText"
                  android:editable="false"
-                 android:layout_above="@+id/editText2"
+                 android:clickable="false"
+                 android:focusable="false"
+                 android:layout_alignBottom="@+id/textView5"
                  android:layout_alignParentStart="true"
-                 android:layout_alignParentEnd="true" />
+                 android:focusableInTouchMode="false"
+                 android:layout_alignParentEnd="true"
+                 android:autoLink="none"
+                 android:enabled="true" />
 
              <EditText
                  android:layout_width="wrap_content"
@@ -209,7 +220,9 @@
                  android:id="@+id/editText4"
                  android:editable="false"
                  android:layout_below="@+id/textViewAulaExamenAsignatura"
+                 android:clickable="false"
                  android:layout_alignParentStart="true"
+                 android:focusable="false"
                  android:layout_alignParentEnd="true" />
          </RelativeLayout>
 
