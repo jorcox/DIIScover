@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Criterios de evaluación"
-            android:id="@+id/textView3"
+            android:id="@+id/textViewcorreoProfesor"
             android:padding="10dp"
             android:textAlignment="center"
             android:textIsSelectable="false"
@@ -64,7 +64,7 @@
             android:padding="10dp"
             android:height="100dp"
             android:textSize="15dp"
-            android:layout_below="@+id/textView3"
+            android:layout_below="@+id/textViewcorreoProfesor"
             android:layout_alignParentStart="true"
             android:layout_alignEnd="@+id/textViewDescripcionAsignatura"
             android:textColor="#757575" />

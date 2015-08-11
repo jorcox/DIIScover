@@ -20,5 +20,6 @@
     <string name="hint_enviar_incidencia">Describe aquí la incidencia...</string>
     <string name="title_activity_laboratorio_listado_">Laboratorios</string>
     <string name="title_activity_asignatura_pantalla">AsignaturaPantalla</string>
+    <string name="title_activity_profesor_lisatdo">Profesores</string>
 
 </resources>

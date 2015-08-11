@@ -42,6 +42,10 @@
             android:name=".AsignaturaPantalla"
             android:label="@string/title_activity_asignatura_pantalla" >
         </activity>
+        <activity
+            android:name=".ProfesorListadoActivity"
+            android:label="@string/title_activity_profesor_lisatdo" >
+        </activity>
     </application>
 
 </manifest>
