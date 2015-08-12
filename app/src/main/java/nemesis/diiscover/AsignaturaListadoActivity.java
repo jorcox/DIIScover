@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -104,6 +106,14 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
                 " where id_carrera="+idCar+" and especialidad.nombre  like '"+  especialidad.getSelectedItem().toString()
                 +"' and asignatura.cuatrimestre="+ cuatrimestres.getSelectedItem().toString();
         Cursor cursor=Maux.Consulta(consulta);
+        if (cursor == null) {
+
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+
+            toast1.show();
+        }
         listaAsignaturas= new ArrayList();
         try{
 
@@ -201,7 +211,14 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
                     " where id_carrera="+idCar+" and especialidad.nombre  like '"+  especialidad.getSelectedItem().toString()
                     +"' and asignatura.cuatrimestre="+ cuatrimestres.getSelectedItem().toString();
             Cursor cursor=Maux.Consulta(consulta);
+            if (cursor == null) {
 
+                Toast toast1 =
+                        Toast.makeText(getApplicationContext(),
+                                "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+
+                toast1.show();
+            }
             try{
 
                 ResultSet result= cursor.getResultSet ();

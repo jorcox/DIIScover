@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -40,7 +41,14 @@ public class ProfesorListadoActivity extends AppCompatActivity {
 
 
         Cursor cursor=Maux.Consulta("SELECT * from profesor");
+        if (cursor == null) {
 
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+
+            toast1.show();
+        }
         try{
 
             ResultSet result= cursor.getResultSet ();

@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -27,7 +28,14 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
 
         MetodosAuxiliares aux = new MetodosAuxiliares();
         Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.imagen, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ");
+        if (cursor == null) {
 
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+
+            toast1.show();
+        }
         try{
 
             ResultSet result = cursor.getResultSet();
