@@ -24,10 +24,15 @@ public class ProfesorListadoActivity extends AppCompatActivity {
 
     ArrayList<Profesor> listaProfesores= new ArrayList();
     static View.OnClickListener myOnClickListener;
+    Long idAsignatura=new Long(-1);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profesor_listado);
+        Bundle extras = getIntent().getExtras();
+        try{
+             idAsignatura = extras.getLong("id", -1);
+        }catch(Exception a){}
 
         myOnClickListener = new MyOnClickListenerProfesor(this);
         MetodosAuxiliares Maux= new MetodosAuxiliares();
@@ -38,9 +43,17 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
         recList.setItemAnimator(new DefaultItemAnimator());
+        Cursor cursor=null;
+        if (idAsignatura==-1){
 
+             cursor=Maux.Consulta("SELECT * from profesor");
+        }
+        else{
 
-        Cursor cursor=Maux.Consulta("SELECT * from profesor");
+            cursor=Maux.Consulta("SELECT * FROM profesor left join  diiscover.rel_profesor_asignatura on profesor.id= rel_profesor_asignatura.id_profesor where id_asignatura ="+idAsignatura);
+            String nombreAsignatura=extras.getString("nombre", "");
+            if (nombreAsignatura!=null && !nombreAsignatura.equals("")) setTitle(getTitle() + " de " +nombreAsignatura );
+        }
         if (cursor == null) {
 
             Toast toast1 =
@@ -111,7 +124,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-           /* int selectedItemPosition = recList.getChildAdapterPosition(v);
+           int selectedItemPosition = recList.getChildAdapterPosition(v);
             RecyclerView.ViewHolder viewHolder
                     = recList.findViewHolderForLayoutPosition(selectedItemPosition);
 
@@ -124,7 +137,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
             Intent i = new Intent(ProfesorListadoActivity.this, ProfesorPantalla.class);
             i.putExtra("idProfesor", idProfesor);
 
-            startActivity (i);*/
+            startActivity (i);
 
 
         }

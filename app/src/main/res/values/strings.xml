@@ -2,8 +2,8 @@
     <string name="app_name">DIIScover</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="action_profesores">Profesores</string>
+    <string name="action_settings">Ajustes</string>
     <!-- Strings de Inigo -->
     <string name="title_activity_cuatrimestres">Cuatrimestres</string>
     <string name="sample_text_image">Imagen asignatura</string>
@@ -21,5 +21,8 @@
     <string name="title_activity_laboratorio_listado_">Laboratorios</string>
     <string name="title_activity_asignatura_pantalla">AsignaturaPantalla</string>
     <string name="title_activity_profesor_lisatdo">Profesores</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="title_activity_registro">Registro</string>
+    <string name="title_activity_profesor_pantalla">Profesor</string>
 
 </resources>

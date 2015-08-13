@@ -26,10 +26,20 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, IncidenciaActivity.class);
         startActivity(i);
     }
-    public void irAProfesores(View vista) {
+      public void irAProfesores(View vista) {
         Intent i = new Intent(this, ProfesorListadoActivity.class);
         startActivity(i);
     }
+
+    public void irAIdentificarse(View vista) {
+        Intent i = new Intent(this, InicioActivity.class);
+        startActivity(i);
+    }
+    public void irARegistrarse(View vista) {
+        Intent i = new Intent(this, RegistroActivity.class);
+        startActivity(i);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

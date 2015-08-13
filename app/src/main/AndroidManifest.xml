@@ -46,6 +46,18 @@
             android:name=".ProfesorListadoActivity"
             android:label="@string/title_activity_profesor_lisatdo" >
         </activity>
+        <activity
+            android:name=".InicioActivity"
+            android:label="@string/title_activity_inicio" >
+        </activity>
+        <activity
+            android:name=".RegistroActivity"
+            android:label="@string/title_activity_registro" >
+        </activity>
+        <activity
+            android:name=".ProfesorPantalla"
+            android:label="@string/title_activity_profesor_pantalla" >
+        </activity>
     </application>
 
 </manifest>

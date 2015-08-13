@@ -33,7 +33,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
             android:id="@+id/textViewDescripcionAsignatura"
             android:layout_below="@+id/textView"
             android:layout_alignParentStart="true"
@@ -49,7 +48,7 @@
                  android:background="#757575"
 
                  android:layout_marginLeft="10dp"
-                 android:layout_below="@+id/textViewAulaAsignatura" />
+                 android:layout_below="@+id/textViewDespachoProfesor" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,8 +65,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textViewCriteriosAsignatura"
+            android:id="@+id/textViewtutoriasProfesor"
             android:padding="10dp"
             android:height="100dp"
             android:textSize="15dp"
@@ -80,7 +78,7 @@
                  android:layout_height="0.5dp"
                  android:background="#757575"
                  android:layout_marginLeft="10dp"
-                 android:layout_below="@+id/textViewCreditosAsignatura" />
+                 android:layout_below="@+id/textViewCorreoProfesor" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,7 +90,7 @@
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="18dp"
-            android:layout_below="@+id/textViewCriteriosAsignatura"
+            android:layout_below="@+id/textViewtutoriasProfesor"
             android:layout_alignParentStart="true" />
 
         <TextView
@@ -117,8 +115,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Aula donde se imparte"
-            android:id="@+id/textViewAulaAsignatura"
+            android:text="Aula no definida"
+            android:id="@+id/textViewDespachoProfesor"
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="15dp"
@@ -134,12 +132,12 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="6"
-            android:id="@+id/textViewCreditosAsignatura"
+            android:id="@+id/textViewCorreoProfesor"
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="15dp"
             android:textColor="#757575"
-            android:layout_below="@+id/textViewAulaAsignatura"
+            android:layout_below="@+id/textViewDespachoProfesor"
             android:layout_alignParentEnd="true"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
@@ -149,7 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Aula donde se examina"
+            android:text="Aula no definida"
             android:id="@+id/textViewAulaExamenAsignatura"
                  android:textAlignment="center"
             android:textIsSelectable="false"
@@ -195,7 +193,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceLarge"
-                 android:text="22-01-1994"
+                 android:text="Fecha no definida"
                  android:id="@+id/textViewFechaExamenAsignatura"
                  android:textAlignment="center"
                  android:textIsSelectable="false"
