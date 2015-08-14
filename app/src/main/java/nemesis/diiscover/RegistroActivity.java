@@ -22,7 +22,7 @@ public class RegistroActivity extends AppCompatActivity {
     private static final int ACTIVITY_CLIENTE = 1;
     private static final String INFO_USUARIO = "INFO_USUARIO";
 
-    private EditText mPassText;             // Contrase�a del usuario
+    private EditText mPassText;             // Contrasena del usuario
     private EditText mCorreoText;           // Correo del usuario
     private EditText mNipText;              // Nip del usuario
     private EditText mNombreText;           // Nombre del usuario
