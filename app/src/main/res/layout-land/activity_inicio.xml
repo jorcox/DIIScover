@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#B3E5FC">
+    android:background="#8cd3ff">
 
 
     <LinearLayout
@@ -43,7 +43,7 @@
                 android:hint="Correo"
                 android:singleLine="false"
                 android:phoneNumber="false"
-                android:textColor="#ffffffff"
+                android:textColor="#010101"
                 android:textSize="18dp" />
         </LinearLayout>
 
@@ -56,7 +56,7 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:hint="Nombre de usuario no encontrado"
-                android:textColorHint="#fffbfffb"
+                android:textColorHint="#010101"
                 android:layout_marginBottom="0dp"
                 android:visibility="invisible" />
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Contraseña"
                 android:textAllCaps="true"
-                android:textColor="#ffffffff"
+                android:textColor="#010101"
                 android:textIsSelectable="false"
                 android:inputType="textPassword"
                 android:textSize="18dp" />
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Contraseña inválida"
-                android:textColorHint="#fffbfffb"
+                android:textColorHint="#010101"
                 android:visibility="invisible" />
 
         </LinearLayout>
@@ -108,7 +108,7 @@
                 android:textStyle="bold"
 
                 style="?android:attr/borderlessButtonStyle"
-                android:background="#B3E5FC"
+                android:background="#8cd3ff"
                 android:textColor="#03A9F4"/>
 
             <Button android:id="@+id/registrar"
@@ -118,7 +118,7 @@
                 android:layout_marginLeft="75dp"
                 android:textSize="14dp"
                 android:textStyle="bold"
-                android:background="#B3E5FC"
+                android:background="#8cd3ff"
 
                 style="?android:attr/borderlessButtonStyle"
                 android:textColor="#03A9F4" />

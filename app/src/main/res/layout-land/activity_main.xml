@@ -4,8 +4,8 @@
     tools:context=".MainActivity">
 
     <Button
-        android:layout_width="175dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
         android:text="Laboratorios"
         android:id="@+id/laboratorios"
         android:drawableTop="@drawable/computer"
@@ -14,13 +14,11 @@
         android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp"
         android:onClick="irALaboratorios" />
 
     <Button
-        android:layout_width="175dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
         android:text="asignaturas"
         android:id="@+id/Asignaturas"
         android:drawableTop="@drawable/asignaturas"
@@ -30,13 +28,11 @@
         android:textSize="20dp"
         android:onClick="irAAsignaturas"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="10dp" />
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="175dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
 
         android:id="@+id/profesores"
         android:onClick="irAProfesores"
@@ -45,15 +41,12 @@
         android:textSize="20dp"
         android:drawableTop="@drawable/profesor"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_marginRight="10dp"
         android:text="profesores"
         android:layout_below="@+id/laboratorios"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp" />
+        android:layout_alignParentStart="true" />
     <Button
-        android:layout_width="175dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
 
         android:textColor="#ffffff"
         android:textSize="20dp"
@@ -61,7 +54,6 @@
         android:onClick="irAPerfil"
         android:drawableTop="@drawable/perfil"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_marginRight="10dp"
         android:text="ver perfil"
         android:layout_alignTop="@+id/profesores"
         android:layout_alignParentEnd="true" />

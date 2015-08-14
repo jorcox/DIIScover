@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#B3E5FC"
+    android:background="#8cd3ff"
     >
 
 <LinearLayout
@@ -37,7 +37,7 @@
                 android:textSize="20dp" />
 
             <TextView android:id="@+id/correoError"
-                android:layout_width="260dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Correo inválido"
                 android:layout_weight="1"
@@ -53,7 +53,7 @@
                 android:textSize="20dp" />
 
             <TextView android:id="@+id/passError"
-                android:layout_width="260dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Contraseña inválida"
                 android:layout_weight="1"
@@ -68,7 +68,7 @@
                 android:textSize="20dp" />
 
             <TextView android:id="@+id/nombreError"
-                android:layout_width="260dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Nombre de usuario inválido"
                 android:layout_weight="1"
@@ -83,7 +83,7 @@
                 android:textSize="20dp" />
 
             <TextView android:id="@+id/nipError"
-                android:layout_width="260dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Nip inválido"
                 android:layout_weight="1"
@@ -110,7 +110,7 @@
 
         <Button android:id="@+id/confirmar"
             android:layout_marginTop="25dp"
-            android:layout_width="125dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
             android:textSize="17dp"
@@ -118,9 +118,8 @@
             android:text="CONFIRMAR"
             android:layout_gravity="right|center_vertical"
             android:layout_marginBottom="20dp"
-            android:layout_marginRight="35dp"
             android:textColor="#03A9F4"
-            android:background="#B3E5FC"/>
+            android:background="#8cd3ff"/>
     </FrameLayout>
 </LinearLayout>
 

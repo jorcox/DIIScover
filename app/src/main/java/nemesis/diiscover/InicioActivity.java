@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.sql.ResultSet;
+
 import nemesis.BD.*;
 /**
  * Clase que se encarga de identificar si los datos indroducidos por el usuario se
@@ -52,6 +54,8 @@ public class InicioActivity extends AppCompatActivity {
 
         mCorreoText = (EditText) findViewById(R.id.correo);
         mPassText = (EditText) findViewById(R.id.pass);
+        mPassText.setText(getPass());
+        mCorreoText.setText(getcorreo());
 
         Button botonIdentificar = (Button) findViewById(R.id.identificar);
 
@@ -62,10 +66,7 @@ public class InicioActivity extends AppCompatActivity {
 
         });
 
-        //CODIGO DE TEST
-        //AdaptadorUsuarios adUsuarios = new AdaptadorUsuarios(this);
-        //adUsuarios.open();
-        //adUsuarios.crearUsuario("test", "test", "test", "test", "test", 1234);
+
     }
 
     /*
@@ -83,34 +84,39 @@ public class InicioActivity extends AppCompatActivity {
         Cursor usuario=maux.Consulta("SELECT * FROM Usuario WHERE correo = '"+correoIntroducido+"'");
 
         //usuario o diiscover.usuario?
+        try{
+            ResultSet resul= usuario.getResultSet();
+            if(resul.next()){
 
-        if (usuario != null) {
 
-            id_usuario=Integer.parseInt(usuario.getString("id_usuario"));
-            String nick = usuario.getString("nombre"); //no hay nombre
-            String pass = usuario.getString("contrasena");
-            String correo = usuario.getString("correo");
+                id_usuario=Integer.parseInt(resul.getString("id"));
+                String nick = resul.getString("nombre"); //no hay nombre
+                String pass = resul.getString("contrasena");
+                String correo = resul.getString("correo");
+//hash
+                if ( String.valueOf(passIntroducido.hashCode()).equals(pass)) {
+                    mRowNick = nick;
+                    actualizarPrefsUsuario(correo);
+                    Intent i = new Intent(this, MainActivity.class);
+                    startActivity(i);
 
-            if (correoIntroducido.equals(nick) && passIntroducido.equals(pass)) {
-                mRowNick = nick;
-                actualizarPrefsUsuario(correo);
-                //Intent i = new Intent(this, MainActivity.class);
-                //startActivityForResult(i, ACTIVITY_CLIENTE);
-
+                }
+                else {
+                    TextView pwd = (TextView) InicioActivity.this.findViewById(R.id.errorPass);
+                    pwd.setVisibility(View.VISIBLE);
+                    TextView user = (TextView) InicioActivity.this.findViewById(R.id.errorNick);
+                    user.setVisibility(View.INVISIBLE);
+                }
             }
             else {
-                TextView pwd = (TextView) InicioActivity.this.findViewById(R.id.errorPass);
-                pwd.setVisibility(View.VISIBLE);
                 TextView user = (TextView) InicioActivity.this.findViewById(R.id.errorNick);
-                user.setVisibility(View.INVISIBLE);
+                user.setVisibility(View.VISIBLE);
+                TextView pwd = (TextView) InicioActivity.this.findViewById(R.id.errorPass);
+                pwd.setVisibility(View.INVISIBLE);
             }
-        }
-        else {
-            TextView user = (TextView) InicioActivity.this.findViewById(R.id.errorNick);
-            user.setVisibility(View.VISIBLE);
-            TextView pwd = (TextView) InicioActivity.this.findViewById(R.id.errorPass);
-            pwd.setVisibility(View.INVISIBLE);
-        }
+        }catch (Exception a){}
+
+
         //if (usuario != null && !usuario.isClosed()){
             //usuario.close();
         //}
@@ -123,4 +129,14 @@ public class InicioActivity extends AppCompatActivity {
         editor.commit();
     }
 
+    public String getcorreo(){
+        SharedPreferences settings = getSharedPreferences(INFO_USUARIO, 0);
+        String pass = settings.getString("pass", "");
+        return pass;
+    }
+    public String getPass(){
+        SharedPreferences settings = getSharedPreferences(INFO_USUARIO, 0);
+        String correo = settings.getString("correo", "");
+        return correo;
+    }
 }

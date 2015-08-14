@@ -19,8 +19,8 @@ public class MetodosAuxiliares {
         Consulta consultaUsarios = new Consulta(consulta);
         consultaUsarios.execute();//mirar el metodo processFinish
         try{
-            double tiempo=System.currentTimeMillis();
-            while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<4000 ) {
+           double tiempo=System.currentTimeMillis();
+            while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<3500 ) {
                 Thread.sleep(50);
             }
 

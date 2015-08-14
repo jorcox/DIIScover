@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.sql.ResultSet;
 
 import nemesis.BD.*;
 /**
@@ -27,7 +30,8 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText mNipText;              // Nip del usuario
     private EditText mNombreText;           // Nombre del usuario
 
-    private String correo;
+    private String correo="";
+    private String pass="";
     private int id_usuario=-1;
     private String mRowCorreo;
     private String mRowNombre;
@@ -54,8 +58,8 @@ public class RegistroActivity extends AppCompatActivity {
                 if (registrado) {
                     actualizarPrefsUsuario();
 
-                    //Intent i = new Intent(RegistroActivity.this, MainActivity.class);
-                    //RegistroActivity.this.startActivityForResult(i, ACTIVITY_CLIENTE);
+                    Intent i = new Intent(RegistroActivity.this, MainActivity.class);
+                    RegistroActivity.this.startActivity(i);
                 }
             }
 
@@ -66,6 +70,8 @@ public class RegistroActivity extends AppCompatActivity {
         SharedPreferences prefsCorreo = getSharedPreferences(INFO_USUARIO, 0);
         SharedPreferences.Editor editor = prefsCorreo.edit();
         editor.putInt("id_usuario", id_usuario);
+        editor.putString("pass", pass);
+        editor.putString("correo", correo);
         editor.commit();
     }
 
@@ -93,7 +99,7 @@ public class RegistroActivity extends AppCompatActivity {
     public boolean registrarUsuario() {
 
 
-        String pass = mPassText.getText().toString();
+         pass = mPassText.getText().toString();
         correo = mCorreoText.getText().toString();
         String nombre = mNombreText.getText().toString();
         int nip;
@@ -108,14 +114,16 @@ public class RegistroActivity extends AppCompatActivity {
         //Cursor usuarioCorreo = dbHelper.listarUsuario(correo);
         //Cursor usuarioNick = dbHelper.listarUsuarioNick(nick);
 
-        Cursor usuarioCorreo=maux.Consulta("SELECT * FROM Usuario WHERE correo = '"+correo+"'");
+        Cursor usuarioCorreo=maux.Consulta("SELECT * FROM Usuario WHERE correo = '" + correo + "'");
 
 
-        if (usuarioCorreo != null && !correo.equals("") && correo.contains("@")  &&
-                !nombre.equals("") && !nombre.equals("") && !pass.equals("") && nip != -1) {
+        if (usuarioCorreo == null && !correo.equals("") && correo.contains("@") && correo.contains(".")  &&
+                 !nombre.equals("") && !pass.equals("") && nip != -1) {
 
             //insertar usuario
             //long resultado = dbHelper.crearUsuario(correo, nick, nombre, direccion, pass, telefono);
+            Sentencia sentenciaRegistro= new Sentencia("Insert into usuario values(null,'"+ pass.hashCode() +"','"+ nip +"','"+ correo +"',null,'"+ nombre +"')");
+            sentenciaRegistro.execute();
             registrado = true;
         }
         else {
@@ -124,50 +132,66 @@ public class RegistroActivity extends AppCompatActivity {
             TextView name = (TextView) RegistroActivity.this.findViewById(R.id.nombreError);
             TextView pwd = (TextView) RegistroActivity.this.findViewById(R.id.passError);
             TextView nipp = (TextView) RegistroActivity.this.findViewById(R.id.nipError);
-            if (usuarioCorreo == null) {
-                userCorreo.setVisibility(View.VISIBLE);
-                mail.setVisibility(View.INVISIBLE);
-                name.setVisibility(View.INVISIBLE);
-                pwd.setVisibility(View.INVISIBLE);
-                nipp.setVisibility(View.INVISIBLE);
 
-            }
-            else if(correo.equals("")) {
-                userCorreo.setVisibility(View.INVISIBLE);
-                mail.setVisibility(View.VISIBLE);
-                name.setVisibility(View.INVISIBLE);
-                pwd.setVisibility(View.INVISIBLE);
-                nipp.setVisibility(View.INVISIBLE);
-            }
-            else if(!correo.contains("@")) {
-                userCorreo.setVisibility(View.INVISIBLE);
-                mail.setVisibility(View.VISIBLE);
-                name.setVisibility(View.INVISIBLE);
-                pwd.setVisibility(View.INVISIBLE);
-                nipp.setVisibility(View.INVISIBLE);
-            }
-            else if(nombre.equals("")) {
-                userCorreo.setVisibility(View.INVISIBLE);
-                mail.setVisibility(View.INVISIBLE);
-                name.setVisibility(View.VISIBLE);
-                pwd.setVisibility(View.INVISIBLE);
-                nipp.setVisibility(View.INVISIBLE);
-            }
-            else if(pass.equals("")) {
-                userCorreo.setVisibility(View.INVISIBLE);
-                mail.setVisibility(View.INVISIBLE);
-                name.setVisibility(View.INVISIBLE);
-                pwd.setVisibility(View.VISIBLE);
-                nipp.setVisibility(View.INVISIBLE);
-            }
-            else if(nip == -1) {
-                userCorreo.setVisibility(View.INVISIBLE);
-                mail.setVisibility(View.INVISIBLE);
-                name.setVisibility(View.INVISIBLE);
-                pwd.setVisibility(View.INVISIBLE);
-                nipp.setVisibility(View.VISIBLE);
-            }
-        }
+           try {
+               ResultSet res=usuarioCorreo.getResultSet();
+
+               if (!res.next()) {
+                   userCorreo.setVisibility(View.VISIBLE);
+                   mail.setVisibility(View.INVISIBLE);
+                   name.setVisibility(View.INVISIBLE);
+                   pwd.setVisibility(View.INVISIBLE);
+                   nipp.setVisibility(View.INVISIBLE);
+
+               }
+               else if(correo.equals("")) {
+                   userCorreo.setVisibility(View.INVISIBLE);
+                   mail.setVisibility(View.VISIBLE);
+                   name.setVisibility(View.INVISIBLE);
+                   pwd.setVisibility(View.INVISIBLE);
+                   nipp.setVisibility(View.INVISIBLE);
+               }
+               else if(!correo.contains("@")) {
+                   userCorreo.setVisibility(View.INVISIBLE);
+                   mail.setVisibility(View.VISIBLE);
+                   name.setVisibility(View.INVISIBLE);
+                   pwd.setVisibility(View.INVISIBLE);
+                   nipp.setVisibility(View.INVISIBLE);
+               }
+               else if(pass.equals("")) {
+                   userCorreo.setVisibility(View.INVISIBLE);
+                   mail.setVisibility(View.INVISIBLE);
+                   name.setVisibility(View.INVISIBLE);
+                   pwd.setVisibility(View.VISIBLE);
+                   nipp.setVisibility(View.INVISIBLE);
+               }
+               else if(nombre.equals("")) {
+                   userCorreo.setVisibility(View.INVISIBLE);
+                   mail.setVisibility(View.INVISIBLE);
+                   name.setVisibility(View.VISIBLE);
+                   pwd.setVisibility(View.INVISIBLE);
+                   nipp.setVisibility(View.INVISIBLE);
+               }
+
+               else if(nip == -1) {
+                   userCorreo.setVisibility(View.INVISIBLE);
+                   mail.setVisibility(View.INVISIBLE);
+                   name.setVisibility(View.INVISIBLE);
+                   pwd.setVisibility(View.INVISIBLE);
+                   nipp.setVisibility(View.VISIBLE);
+               }
+           }catch(Exception a){
+
+
+               Toast toast1 =
+                       Toast.makeText(getApplicationContext(),
+                               "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+
+               toast1.show();
+           }
+
+           }
+
         return registrado;
     }
 

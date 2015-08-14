@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="#B3E5FC">
+    android:background="#8cd3ff">
 
     <TextView
         android:text="@string/enviar_incidencia"
@@ -30,8 +30,10 @@
         android:text="@string/boton_enviar_incidencia"
         android:id="@+id/boton_enviar_incidencia"
         android:layout_gravity="right"
+    style="?android:attr/borderlessButtonStyle"
         android:layout_marginRight="20dp"
         android:background="#03A9F4"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
 
 </LinearLayout>

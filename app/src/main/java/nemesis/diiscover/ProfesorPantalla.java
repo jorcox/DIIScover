@@ -1,5 +1,6 @@
 package nemesis.diiscover;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
@@ -111,10 +112,16 @@ public class ProfesorPantalla extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_incidencia) {
+            Intent i = new Intent(this, IncidenciaActivity.class);
+            startActivity(i);
             return true;
         }
-
+        if (id == R.id.action_desconexion) {
+            Intent i = new Intent(this, InicioActivity.class);
+            startActivity(i);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
     public  static Bitmap getCircularBitmapFrom(Bitmap bitmap) {

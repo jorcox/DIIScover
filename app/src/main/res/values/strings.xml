@@ -25,5 +25,6 @@
     <string name="title_activity_inicio">Inicio</string>
     <string name="title_activity_registro">Registro</string>
     <string name="title_activity_profesor_pantalla">Profesor</string>
+    <string name="title_activity_perfil">PerfilActivity</string>
 
 </resources>

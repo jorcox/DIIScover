@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="nemesis.diiscover.ProfesorListadoActivity"
-    android:background="#B3E5FC">
+    android:background="#8cd3ff">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/profesorlist"
         android:layout_width="match_parent"

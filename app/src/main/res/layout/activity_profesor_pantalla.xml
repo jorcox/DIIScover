@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="nemesis.diiscover.ProfesorPantalla"
-    android:background="#B3E5FC">
+    android:background="#8cd3ff">
 
     <ImageView
         android:layout_width="135dp"
