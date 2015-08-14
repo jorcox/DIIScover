@@ -26,7 +26,7 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_laboratorio_listado_);
 
         MetodosAuxiliares aux = new MetodosAuxiliares();
-        Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.imagen, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ");
+        Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ");
 
         try{
 
@@ -37,13 +37,7 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
                 String piso = result.getString("piso");
                 String numero = result.getString("numero");
 
-                //InputStream is = result.getBinaryStream("imagen");
-                //BufferedInputStream  bufferedInputStream = new BufferedInputStream(is);
-
-                //Bitmap bmp = BitmapFactory.decodeStream(bufferedInputStream);
-                byte [] bytes = result.getBytes("imagen");
-
-                Laboratorio lab = new Laboratorio ( id,  nombre, piso, numero,  bytes);
+                Laboratorio lab = new Laboratorio ( id,  nombre, piso, numero);
                 listaLaboratorios.add(lab);
             }
 
