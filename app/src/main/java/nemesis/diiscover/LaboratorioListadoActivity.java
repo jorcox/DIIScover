@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -27,15 +26,8 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_laboratorio_listado_);
 
         MetodosAuxiliares aux = new MetodosAuxiliares();
-        Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.imagen, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ");
-        if (cursor == null) {
+        Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ");
 
-            Toast toast1 =
-                    Toast.makeText(getApplicationContext(),
-                            "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
-
-            toast1.show();
-        }
         try{
 
             ResultSet result = cursor.getResultSet();
@@ -45,13 +37,7 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
                 String piso = result.getString("piso");
                 String numero = result.getString("numero");
 
-                //InputStream is = result.getBinaryStream("imagen");
-                //BufferedInputStream  bufferedInputStream = new BufferedInputStream(is);
-
-                //Bitmap bmp = BitmapFactory.decodeStream(bufferedInputStream);
-                byte [] bytes = result.getBytes("imagen");
-
-                Laboratorio lab = new Laboratorio ( id,  nombre, piso, numero,  bytes);
+                Laboratorio lab = new Laboratorio ( id,  nombre, piso, numero);
                 listaLaboratorios.add(lab);
             }
 

@@ -33,13 +33,13 @@ public class LaboratorioAdapter extends RecyclerView.Adapter<LaboratorioViewHold
             contactViewHolder.id.setText(String.valueOf(laboratorio.id));
 
 
-            /* Carga de imagen */
+            /* Carga de imagen *//*
             try {
                 byte[] data = laboratorio.imagen;
                 Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
                 contactViewHolder.imagen.setImageBitmap(bitmap);
             } catch (Exception ex) {
-            }
+            }*/
 
         /*
         URL imageUrl = null;
