@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, CarreraListadoActivity.class);
         startActivity(i);
     }
-    public void irAIncidencia(View vista) {
-        Intent i = new Intent(this, IncidenciaActivity.class);
+    public void irAAyudar(View vista) {
+       Intent i = new Intent(this, ayudanosActivity.class);
         startActivity(i);
     }
       public void irAProfesores(View vista) {

@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -95,6 +96,12 @@ public class ProfesorPantalla extends AppCompatActivity {
 
         }
 
+    }
+    public void irAEnviarCorreo(View vista) {
+        Intent i = new Intent(this, CorreoProfesor.class);
+        i.putExtra("profesor",nombre);
+        i.putExtra("correo",correo);
+        startActivity(i);
     }
 
     @Override

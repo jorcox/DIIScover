@@ -50,9 +50,9 @@
 
         android:textColor="#ffffff"
         android:textSize="20dp"
-        android:id="@+id/perfil"
+        android:id="@+id/ayudar"
         android:onClick="irAPerfil"
-        android:drawableTop="@drawable/perfil"
+        android:drawableTop="@drawable/mano"
         style="?android:attr/borderlessButtonStyle"
         android:text="ver perfil"
         android:layout_alignTop="@+id/profesores"

@@ -47,13 +47,9 @@ public class IncidenciaActivity extends AppCompatActivity {
                 insercion.execute();
 
                 /* Enviar correo */
-                Mail mail = new Mail(IncidenciaActivity.this, usuario, fecha, descripcion);
-                mail.enviar();
-                Toast toast1 =
-                        Toast.makeText(getApplicationContext(),
-                                "¡INCIDENCIA ENVIADA, GRACIAS!", Toast.LENGTH_SHORT);
+                MailProfesores mail = new MailProfesores(IncidenciaActivity.this, "Incidencia", descripcion,"diiscover.soporte@gmail.com");
+                mail.enviar(IncidenciaActivity.this);
 
-                toast1.show();
                 finish();
 
             }

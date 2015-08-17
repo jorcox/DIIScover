@@ -6,18 +6,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class PerfilActivity extends AppCompatActivity {
+public class ayudanosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil);
+        setContentView(R.layout.activity_ayuda);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_perfil, menu);
+        getMenuInflater().inflate(R.menu.menu_ayuda, menu);
         return true;
     }
 
@@ -31,11 +31,6 @@ public class PerfilActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_incidencia) {
             Intent i = new Intent(this, IncidenciaActivity.class);
-            startActivity(i);
-            return true;
-        }
-        if (id == R.id.action_desconexion) {
-            Intent i = new Intent(this, InicioActivity.class);
             startActivity(i);
             return true;
         }
