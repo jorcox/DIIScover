@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void irAIdentificarse(View vista) {
-        Intent i = new Intent(this, InicioActivity.class);
+    public void irALaboratorios(View vista) {
+        Intent i = new Intent(this, LaboratorioListadoActivity.class);
         startActivity(i);
     }
     public void irARegistrarse(View vista) {
@@ -60,12 +60,7 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, IncidenciaActivity.class);
             startActivity(i);
             return true;
-        }
-        if (id == R.id.action_desconexion) {
-            Intent i = new Intent(this, InicioActivity.class);
-            startActivity(i);
-            return true;
-        }
+        } 
         return super.onOptionsItemSelected(item);
     }
 

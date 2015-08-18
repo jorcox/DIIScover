@@ -20,7 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:id="@+id/texto_mensaje"
-        android:maxLength="1000"
         android:hint="No olvides poner tu correo si esperas una respuesta del profesor"
         android:gravity="top"
         android:layout_marginLeft="20dp"

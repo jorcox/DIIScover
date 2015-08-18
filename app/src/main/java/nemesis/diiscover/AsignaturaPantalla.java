@@ -115,11 +115,6 @@ public class AsignaturaPantalla extends AppCompatActivity {
             startActivity(i);
             return true;
         }
-        if (id == R.id.action_desconexion) {
-            Intent i = new Intent(this, InicioActivity.class);
-            startActivity(i);
-            return true;
-        }
         if (id == R.id.action_profesores) {
 
             Intent i = new Intent(AsignaturaPantalla.this, ProfesorListadoActivity.class);

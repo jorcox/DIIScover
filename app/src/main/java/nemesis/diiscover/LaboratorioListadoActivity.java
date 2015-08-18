@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.sql.ResultSet;
@@ -87,12 +89,15 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
             startActivity(i);
             return true;
         }
-        if (id == R.id.action_desconexion) {
-            Intent i = new Intent(this, InicioActivity.class);
-            startActivity(i);
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
+
+    public void botonSelecionado(View v){
+        Button b = (Button)v;
+        String buttonText = b.getText().toString();
+        Intent i = new Intent(LaboratorioListadoActivity.this, laboratorioPantalla.class);
+        i.putExtra("nombre", buttonText);
+        startActivity (i);
+    }
+
 }

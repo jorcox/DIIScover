@@ -69,6 +69,10 @@
             android:name=".CorreoProfesor"
             android:label="@string/title_activity_correo_profesor" >
         </activity>
+        <activity
+            android:name=".laboratorioPantalla"
+            android:label="@string/title_activity_laboratorio_pantalla" >
+        </activity>
     </application>
 
 </manifest>

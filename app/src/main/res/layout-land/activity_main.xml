@@ -5,7 +5,7 @@
 
     <Button
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:text="Laboratorios"
         android:id="@+id/laboratorios"
         android:drawableTop="@drawable/computer"
@@ -18,7 +18,7 @@
 
     <Button
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:text="asignaturas"
         android:id="@+id/Asignaturas"
         android:drawableTop="@drawable/asignaturas"
@@ -32,7 +32,7 @@
 
     <Button
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
 
         android:id="@+id/profesores"
         android:onClick="irAProfesores"
@@ -46,12 +46,12 @@
         android:layout_alignParentStart="true" />
     <Button
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
 
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:id="@+id/ayudar"
-        android:onClick="irAPerfil"
+        android:onClick="irAAyudar"
         android:drawableTop="@drawable/mano"
         style="?android:attr/borderlessButtonStyle"
         android:text="ver perfil"

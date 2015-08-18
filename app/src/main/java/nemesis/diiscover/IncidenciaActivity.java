@@ -49,8 +49,12 @@ public class IncidenciaActivity extends AppCompatActivity {
                 /* Enviar correo */
                 MailProfesores mail = new MailProfesores(IncidenciaActivity.this, "Incidencia", descripcion,"diiscover.soporte@gmail.com");
                 mail.enviar(IncidenciaActivity.this);
+                Toast toast1 =
+                        Toast.makeText(IncidenciaActivity.this,
+                                "¡Gracias por ayudarnos a mejorar!", Toast.LENGTH_SHORT);
 
-                finish();
+                toast1.show();
+
 
             }
         });
@@ -73,11 +77,6 @@ public class IncidenciaActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
 
-        if (id == R.id.action_desconexion) {
-            Intent i = new Intent(this, InicioActivity.class);
-            startActivity(i);
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
     /**
