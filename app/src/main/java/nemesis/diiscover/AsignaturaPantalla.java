@@ -1,5 +1,6 @@
 package nemesis.diiscover;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -58,6 +59,7 @@ public class AsignaturaPantalla extends AppCompatActivity {
             ResultSet result= cursor.getResultSet ();
             while(result.next()){
                  nombre=result.getString("nombre");
+                 id=result.getLong("id");
                   creditos=result.getInt("creditos");
                   criterios=result.getString("criteriosEvaluacion");
                   descripcion=result.getString("descripcion");
@@ -74,13 +76,13 @@ public class AsignaturaPantalla extends AppCompatActivity {
         }
         try{
             setTitle(nombre);
-            aulaView= (TextView)findViewById(R.id.textViewAulaAsignatura);
+            aulaView= (TextView)findViewById(R.id.textViewDespachoProfesor);
             aulaView.setText(aula);
             aulaExamenView= (TextView)findViewById(R.id.textViewAulaExamenAsignatura);
             aulaExamenView.setText(aulaExamen);
-            creditosView= (TextView)findViewById(R.id.textViewCreditosAsignatura);
+            creditosView= (TextView)findViewById(R.id.textViewCorreoProfesor);
             creditosView.setText(String.valueOf(creditos));
-            criteriosView= (TextView)findViewById(R.id.textViewCriteriosAsignatura);
+            criteriosView= (TextView)findViewById(R.id.textViewtutoriasProfesor);
             criteriosView.setText(criterios);
             fechaExamenView= (TextView)findViewById(R.id.textViewFechaExamenAsignatura);
             fechaExamenView.setText(fechaExamen.toString());
@@ -108,10 +110,20 @@ public class AsignaturaPantalla extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_incidencia) {
+            Intent i = new Intent(this, IncidenciaActivity.class);
+            startActivity(i);
             return true;
         }
+        if (id == R.id.action_profesores) {
 
+            Intent i = new Intent(AsignaturaPantalla.this, ProfesorListadoActivity.class);
+            i.putExtra("id",  (this.id));
+            i.putExtra("nombre",  (this.nombre));
+            startActivity (i);
+            return true;
+        }
+//
         return super.onOptionsItemSelected(item);
     }
 }

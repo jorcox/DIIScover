@@ -1,5 +1,6 @@
 package nemesis.diiscover;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -7,6 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -27,7 +31,14 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
 
         MetodosAuxiliares aux = new MetodosAuxiliares();
         Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ");
+        if (cursor == null) {
 
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+
+            toast1.show();
+        }
         try{
 
             ResultSet result = cursor.getResultSet();
@@ -73,10 +84,20 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_incidencia) {
+            Intent i = new Intent(this, IncidenciaActivity.class);
+            startActivity(i);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
+
+    public void botonSelecionado(View v){
+        Button b = (Button)v;
+        String buttonText = b.getText().toString();
+        Intent i = new Intent(LaboratorioListadoActivity.this, laboratorioPantalla.class);
+        i.putExtra("nombre", buttonText);
+        startActivity (i);
+    }
+
 }

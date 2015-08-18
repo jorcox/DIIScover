@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#8cd3ff">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="DIIScover"
+            android:id="@+id/Nemesis"
+            android:layout_gravity="center_horizontal"
+            android:textIsSelectable="false"
+            android:textSize="76dp"
+            android:textColor="#03A9F4" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/correo"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:hint="Correo"
+                android:singleLine="false"
+                android:phoneNumber="false"
+                android:textColor="#010101"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView android:id="@+id/errorNick"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de usuario no encontrado"
+                android:textColorHint="#010101"
+                android:layout_marginBottom="0dp"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <EditText android:id="@+id/pass"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:textAllCaps="true"
+                android:textColor="#010101"
+                android:textIsSelectable="false"
+                android:inputType="textPassword"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView android:id="@+id/errorPass"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Contraseña inválida"
+                android:textColorHint="#010101"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="320dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal">
+
+            <Button android:id="@+id/identificar"
+                android:text="INICIAR SESIÓN"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:textSize="14dp"
+                android:textStyle="bold"
+
+                style="?android:attr/borderlessButtonStyle"
+                android:background="#8cd3ff"
+                android:textColor="#03A9F4"/>
+
+            <Button android:id="@+id/registrar"
+                android:text="REGISTRARSE"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:background="#8cd3ff"
+
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="#03A9F4" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

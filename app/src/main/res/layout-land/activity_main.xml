@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"   android:background="#8cd3ff"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="140dp"
+        android:text="Laboratorios"
+        android:id="@+id/laboratorios"
+        android:drawableTop="@drawable/computer"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:onClick="irALaboratorios" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="140dp"
+        android:text="asignaturas"
+        android:id="@+id/Asignaturas"
+        android:drawableTop="@drawable/asignaturas"
+        style="?android:attr/borderlessButtonStyle"
+
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:onClick="irAAsignaturas"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="140dp"
+
+        android:id="@+id/profesores"
+        android:onClick="irAProfesores"
+
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:drawableTop="@drawable/profesor"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="profesores"
+        android:layout_below="@+id/laboratorios"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="140dp"
+
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:id="@+id/ayudar"
+        android:onClick="irAAyudar"
+        android:drawableTop="@drawable/mano"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="ver perfil"
+        android:layout_alignTop="@+id/profesores"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

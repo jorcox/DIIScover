@@ -42,6 +42,37 @@
             android:name=".AsignaturaPantalla"
             android:label="@string/title_activity_asignatura_pantalla" >
         </activity>
+        <activity
+            android:name=".ProfesorListadoActivity"
+            android:label="@string/title_activity_profesor_lisatdo" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".InicioActivity"
+            android:label="@string/title_activity_inicio" >
+        </activity>
+        <activity
+            android:name=".RegistroActivity"
+            android:label="@string/title_activity_registro" >
+        </activity>
+        <activity
+            android:name=".ProfesorPantalla"
+            android:label="@string/title_activity_profesor_pantalla" >
+        </activity>
+        <activity
+            android:name=".ayudanosActivity"
+            android:label="@string/title_activity_perfil" >
+        </activity>
+        <activity
+            android:name=".CorreoProfesor"
+            android:label="@string/title_activity_correo_profesor" >
+        </activity>
+        <activity
+            android:name=".laboratorioPantalla"
+            android:label="@string/title_activity_laboratorio_pantalla" >
+        </activity>
     </application>
 
 </manifest>

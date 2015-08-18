@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -50,7 +51,14 @@ public class CarreraListadoActivity extends AppCompatActivity {
 
         Cursor cursor=Maux.Consulta("SELECT Carrera.nombre,Carrera.imagen,Carrera.descripcion,Carrera.linkExterno,Carrera.cuatrimestres ,Carrera.id,Carrera.coordinador, " +
                 "tipo_carrera.nombre as tipoCarrera FROM diiscover.carrera inner join tipo_carrera where id_tipo_carrera=tipo_carrera.id");
+        if (cursor == null) {
 
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+
+            toast1.show();
+        }
         try{
 
             ResultSet result= cursor.getResultSet ();
@@ -100,11 +108,11 @@ public class CarreraListadoActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_incidencia) {
+            Intent i = new Intent(this, IncidenciaActivity.class);
+            startActivity(i);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
     /**

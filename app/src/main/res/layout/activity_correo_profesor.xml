@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8cd3ff">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/asuntoText"
+        android:maxLength="1000"
+        android:hint="Asunto"
+        android:gravity="top"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/texto_mensaje"
+        android:hint="No olvides poner tu correo si esperas una respuesta del profesor"
+        android:gravity="top"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton_enviar_incidencia"
+        android:id="@+id/boton_enviar_correo"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:background="#03A9F4"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:onClick="enviarCorreo" />
+
+
+</LinearLayout>
