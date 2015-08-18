@@ -16,7 +16,7 @@ import java.util.Date;
 
 import nemesis.BD.Sentencia;
 
-public class ayudanosActivity extends AppCompatActivity {
+public class AyudanosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +58,8 @@ public class ayudanosActivity extends AppCompatActivity {
         Sentencia insertar= new Sentencia("Insert into ayudar values(null,'"+ fecha + "','"+ texto +"')");
         insertar.execute();
           /* Enviar correo */
-        MailProfesores mail = new MailProfesores(ayudanosActivity.this, "Ayudános", texto,"diiscover.soporte@gmail.com");
-        mail.enviar(ayudanosActivity.this);
+        MailProfesores mail = new MailProfesores(AyudanosActivity.this, "Ayudános", texto,"diiscover.soporte@gmail.com");
+        mail.enviar(AyudanosActivity.this);
         Toast toast1 =
                 Toast.makeText(this,
                         "¡Gracias por ayudarnos a mejorar!", Toast.LENGTH_SHORT);

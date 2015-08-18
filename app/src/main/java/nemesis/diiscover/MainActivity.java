@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
     public void irAAyudar(View vista) {
-       Intent i = new Intent(this, ayudanosActivity.class);
+       Intent i = new Intent(this, AyudanosActivity.class);
         startActivity(i);
     }
       public void irAProfesores(View vista) {

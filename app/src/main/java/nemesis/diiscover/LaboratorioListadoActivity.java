@@ -95,7 +95,7 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
     public void botonSelecionado(View v){
         Button b = (Button)v;
         String buttonText = b.getText().toString();
-        Intent i = new Intent(LaboratorioListadoActivity.this, laboratorioPantalla.class);
+        Intent i = new Intent(LaboratorioListadoActivity.this, LaboratorioPantalla.class);
         i.putExtra("nombre", buttonText);
         startActivity (i);
     }

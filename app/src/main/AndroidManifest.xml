@@ -62,7 +62,7 @@
             android:label="@string/title_activity_profesor_pantalla" >
         </activity>
         <activity
-            android:name=".ayudanosActivity"
+            android:name=".AyudanosActivity"
             android:label="@string/title_activity_perfil" >
         </activity>
         <activity
@@ -70,7 +70,7 @@
             android:label="@string/title_activity_correo_profesor" >
         </activity>
         <activity
-            android:name=".laboratorioPantalla"
+            android:name=".LaboratorioPantalla"
             android:label="@string/title_activity_laboratorio_pantalla" >
         </activity>
     </application>
