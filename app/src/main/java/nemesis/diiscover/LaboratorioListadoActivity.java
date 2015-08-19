@@ -1,5 +1,6 @@
 package nemesis.diiscover;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.ResultSet;
@@ -24,10 +26,15 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
     RecyclerView recList = null;
     ArrayList<Laboratorio> listaLaboratorios = new ArrayList();
 
+    static View.OnClickListener myOnClickListener;
+    Long idLaboratorio = new Long(-1);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laboratorio_listado_);
+
+        myOnClickListener = new MyOnClickListenerLaboratorio(this);
 
         MetodosAuxiliares aux = new MetodosAuxiliares();
         Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ");
@@ -66,6 +73,8 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
         recList.setItemAnimator(new DefaultItemAnimator());
         LaboratorioAdapter ca = new LaboratorioAdapter(listaLaboratorios);
         recList.setAdapter(ca);
+
+
     }
 
 
@@ -99,5 +108,36 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
         i.putExtra("nombre", buttonText);
         startActivity (i);
     }
+
+    public class MyOnClickListenerLaboratorio implements View.OnClickListener  {
+
+        private final Context context;
+
+        private MyOnClickListenerLaboratorio(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public void onClick(View v) {
+            int selectedItemPosition = recList.getChildAdapterPosition(v);
+            RecyclerView.ViewHolder viewHolder
+                    = recList.findViewHolderForLayoutPosition(selectedItemPosition);
+
+            TextView TextViewId
+                    = (TextView) viewHolder.itemView.findViewById(R.id.textViewLaboratorioID);
+            String selectedId = (String) TextViewId.getText();
+            long idLab = Long.parseLong(selectedId);
+
+
+            Intent i = new Intent(LaboratorioListadoActivity.this, LaboratorioPantalla.class);
+            i.putExtra("idLab", idLab);
+
+            startActivity (i);
+
+
+        }
+
+    }
+
 
 }
