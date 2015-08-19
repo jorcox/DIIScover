@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import nemesis.BD.Consulta;
 
 
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, IncidenciaActivity.class);
             startActivity(i);
             return true;
-        } 
+        }
         return super.onOptionsItemSelected(item);
     }
 
