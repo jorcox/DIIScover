@@ -19,24 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textLaboratorio"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:textColor="#010101"
-        android:text="dfghfd"
-        android:textSize="35dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Piso"
         android:id="@+id/textView4"
         android:layout_marginTop="54dp"
-        android:layout_below="@+id/textLaboratorio"
         android:layout_alignParentStart="true"
         android:textColor="#010101"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_below="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,28 +47,39 @@
         android:layout_marginTop="7dp"
         class="View" />
 
+    <view
+        class="View"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/view5"
+        android:background="#757575"
+        android:visibility="visible"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Ordenadores Libres"
         android:id="@+id/textView8"
-        android:layout_below="@+id/view3"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"
         android:textColor="#010101"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_below="@+id/view5"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="7dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Desconocido"
-        android:layout_below="@+id/view3"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp"
         android:textSize="20dp"
-        android:id="@+id/textPcLibre" />
+        android:id="@+id/textPcLibre"
+        android:layout_below="@+id/view5"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp" />
 
     <view
         class="View"
@@ -89,5 +89,29 @@
         android:background="#757575"
         android:visibility="visible"
         android:layout_below="@+id/textView8"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Número"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/view3"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp"
+        android:layout_marginTop="7dp"
+        android:textColor="#010101" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Número desconocido"
+        android:id="@+id/textNumero"
+        android:layout_below="@+id/view3"
+        android:layout_alignParentEnd="true"
+        android:textSize="20dp"
         android:layout_marginTop="7dp" />
 </RelativeLayout>

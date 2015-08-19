@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:gravity="center_horizontal"
     android:layout_height="match_parent"
-    android:background="#8cd3ff">
+    android:background="#8cd3ff"
+    android:onClick="my">
 
 
 
