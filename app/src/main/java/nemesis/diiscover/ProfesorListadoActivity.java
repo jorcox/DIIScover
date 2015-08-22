@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +27,7 @@ import nemesis.BD.Cursor;
 public class ProfesorListadoActivity extends AppCompatActivity {
     Consulta consulta=null; RecyclerView recList=null;
     EditText profesor=null;
+    String anteriorTexto="";
     ArrayList<Profesor> listaProfesores= new ArrayList();
     ArrayList<Profesor> listaProfesorestotal= new ArrayList();
     static View.OnClickListener myOnClickListener;
@@ -89,12 +92,33 @@ public class ProfesorListadoActivity extends AppCompatActivity {
 
         }
         // evento del editText del profesor
+        profesor.addTextChangedListener(new TextWatcher() {
 
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filtradoProfesor( );
+
+            }
+
+        });
         profesor.setOnEditorActionListener(
                 new EditText.OnEditorActionListener() {
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                       try{
+
                           if (actionId == EditorInfo.IME_ACTION_SEARCH ||
                                   actionId == EditorInfo.IME_ACTION_DONE ||
                                   event.getAction() == KeyEvent.ACTION_DOWN &&
