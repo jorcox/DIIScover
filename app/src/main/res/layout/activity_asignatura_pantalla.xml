@@ -110,7 +110,7 @@
                  android:layout_height="0.5dp"
                  android:background="#757575"
                  android:layout_marginLeft="10dp"
-                 android:layout_below="@+id/textViewAulaExamenAsignatura" />
+                 android:layout_below="@+id/textViewFechaExamenAsignatura" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,8 +147,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Aula no definida"
-            android:id="@+id/textViewAulaExamenAsignatura"
+            android:text="Fecha no definida"
+            android:id="@+id/textViewFechaExamenAsignatura"
                  android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="15dp"
@@ -163,7 +163,7 @@
                  android:layout_height="0.5dp"
                  android:background="#757575"
                  android:layout_marginLeft="10dp"
-                 android:layout_below="@+id/textViewFechaExamenAsignatura" />
+                 android:layout_below="@+id/textViewAulaExamenAsignatura" />
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
@@ -186,15 +186,15 @@
                  android:textAlignment="center"
                  android:textIsSelectable="false"
                  android:textSize="18dp"
-                 android:layout_alignTop="@+id/textViewAulaExamenAsignatura"
+                 android:layout_alignTop="@+id/textViewFechaExamenAsignatura"
                  android:layout_alignParentStart="true" />
 
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceLarge"
-                 android:text="Fecha no definida"
-                 android:id="@+id/textViewFechaExamenAsignatura"
+                 android:text="Aula no definida"
+                 android:id="@+id/textViewAulaExamenAsignatura"
                  android:textAlignment="center"
                  android:textIsSelectable="false"
                  android:textSize="15dp"

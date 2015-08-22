@@ -21,7 +21,7 @@ public class AsignaturaPantalla extends AppCompatActivity {
     private String aulaExamen="";
     private String aula="";
     private String linkExterno="";
-    private Date fechaExamen=null;
+    private String fechaExamen=null;
     private TextView aulaView;
     private TextView aulaExamenView;
     private TextView creditosView;
@@ -65,7 +65,7 @@ public class AsignaturaPantalla extends AppCompatActivity {
                   descripcion=result.getString("descripcion");
                   aulaExamen=result.getString("aulaExamen");
                   linkExterno=result.getString("linkExterno");
-                  fechaExamen=result.getDate("fechaExamen");
+                  fechaExamen=result.getString("fechaExamen");
                   aula=result.getString("aula");
 
             }
