@@ -5,7 +5,7 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     tools:context="nemesis.diiscover.ayudanosActivity"
-    android:background="#8cd3ff">
+    android:background="#ffffff">
 
     <LinearLayout
         android:orientation="vertical"

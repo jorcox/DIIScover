@@ -1,16 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"   android:background="#8cd3ff"
+    android:layout_height="match_parent"   android:background="#ffffff"
     tools:context=".MainActivity">
 
     <Button
-        android:layout_width="300dp"
+        android:layout_width="310dp"
         android:layout_height="140dp"
-        android:text="Laboratorios"
+        android:text=" Laboratorios"
         android:id="@+id/laboratorios"
-        android:drawableTop="@drawable/computer"
+        android:drawableLeft="@drawable/computer2"
         style="?android:attr/borderlessButtonStyle"
-        android:textColor="#ffffff"
+        android:textColor="#03A9F4"
         android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
@@ -21,10 +21,10 @@
         android:layout_height="140dp"
         android:text="asignaturas"
         android:id="@+id/Asignaturas"
-        android:drawableTop="@drawable/asignaturas"
+        android:drawableLeft="@drawable/asignaturas2"
         style="?android:attr/borderlessButtonStyle"
 
-        android:textColor="#ffffff"
+        android:textColor="#03A9F4"
         android:textSize="20dp"
         android:onClick="irAAsignaturas"
         android:layout_alignParentTop="true"
@@ -37,9 +37,9 @@
         android:id="@+id/profesores"
         android:onClick="irAProfesores"
 
-        android:textColor="#ffffff"
+        android:textColor="#03A9F4"
         android:textSize="20dp"
-        android:drawableTop="@drawable/profesor"
+        android:drawableLeft="@drawable/profesor2"
         style="?android:attr/borderlessButtonStyle"
         android:text="profesores"
         android:layout_below="@+id/laboratorios"
@@ -48,13 +48,13 @@
         android:layout_width="300dp"
         android:layout_height="140dp"
 
-        android:textColor="#ffffff"
+        android:textColor="#03A9F4"
         android:textSize="20dp"
         android:id="@+id/ayudar"
         android:onClick="irAAyudar"
-        android:drawableTop="@drawable/mano"
+        android:drawableLeft="@drawable/mano2"
         style="?android:attr/borderlessButtonStyle"
-        android:text="ver perfil"
+        android:text="Ayúdanos"
         android:layout_alignTop="@+id/profesores"
         android:layout_alignParentEnd="true" />
 
