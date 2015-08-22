@@ -9,7 +9,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/profesorText"
         android:hint="Nombre del profesor"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/profesorlist"

@@ -191,12 +191,14 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         super.onSaveInstanceState(guardarEstado);
         guardarEstado.putString("textoProfe", profesor.getText().toString());
 
+
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle recEstado) {
         super.onRestoreInstanceState(recEstado);
         profesor.setText(recEstado.getString("textoProfe"));
+        filtradoProfesor();
     }
 
 
