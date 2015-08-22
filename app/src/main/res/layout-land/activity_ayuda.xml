@@ -5,7 +5,7 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     tools:context="nemesis.diiscover.ayudanosActivity"
-    android:background="#8cd3ff">
+    android:background="#ffffff">
 
     <LinearLayout
         android:orientation="vertical"
@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:layout_alignParentStart="true"
-            android:hint="¿Qué te gustaría pder hacer/tener en la aplicación?"
+            android:hint="¿Qué te gustaría poder hacer/tener en la aplicación?"
             android:textSize="15dp"
             android:layout_below="@+id/checkBox"
             android:layout_marginBottom="3dp"

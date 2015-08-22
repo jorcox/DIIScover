@@ -46,13 +46,15 @@ public class MailProfesores {
 
         try {
             Message message = createMessage(FROM, ASUNTO, mensaje, session);
-            new SendMailTask(context).execute(message);
             Toast toast1 =
                     Toast.makeText(context,
-                            "Correo enviado correctamente", Toast.LENGTH_SHORT);
+                            "Enviando..", Toast.LENGTH_SHORT);
 
             toast1.show();
+            new SendMailTask(context).execute(message);
+
             actividad.finish();
+
         } catch (AddressException e) {
             Toast toast1 =
                     Toast.makeText(context,
@@ -144,9 +146,12 @@ public class MailProfesores {
         protected Void doInBackground(Message... messages) {
             try {
                 Transport.send(messages[0]);
+
             } catch (MessagingException e) {
+
                 e.printStackTrace();
             }
+
             return null;
         }
     }

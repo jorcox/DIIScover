@@ -5,12 +5,12 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     tools:context="nemesis.diiscover.ProfesorPantalla"
-    android:background="#8cd3ff">
+    android:background="#ffffff">
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/profesor"
+        android:src="@drawable/profesor2"
         android:id="@+id/imagenProfesor"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/view2" />
@@ -136,8 +136,8 @@
         android:textStyle="bold"
         android:text="ENVIAR CORREO"
         android:layout_gravity="right|center_vertical"
-        android:textColor="#ffffff"
-        android:background="#03A9F4"
+        android:textColor="#03A9F4"
+        android:background="#ffffff"
         android:singleLine="false"
 
         android:layout_alignParentBottom="true"

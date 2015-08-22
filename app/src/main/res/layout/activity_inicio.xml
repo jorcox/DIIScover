@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#8cd3ff">
+    android:background="#ffffff">
 
 
     <LinearLayout
@@ -102,7 +102,7 @@
             android:layout_width="260dp"
             android:layout_height="fill_parent"
             android:layout_gravity="center_horizontal"
-            android:background="#8cd3ff">
+            android:background="#ffffff">
 
             <Button android:id="@+id/identificar"
                 android:text="INICIAR SESIÓN"
@@ -111,7 +111,7 @@
                 android:layout_marginRight="5dp"
                 android:textSize="14dp"
                 android:textStyle="bold"
-                android:background="#8cd3ff"
+                android:background="#ffffff"
                 style="?android:attr/borderlessButtonStyle"
                 android:textColor="#03A9F4" />
 
@@ -123,8 +123,8 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 style="?android:attr/borderlessButtonStyle"
-                android:background="#8cd3ff"
-                android:textColor="#03A9F4" />
+                android:textColor="#03A9F4"
+                android:background="#ffffff" />
 
         </LinearLayout>
 

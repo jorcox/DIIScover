@@ -21,7 +21,7 @@ public class DialogoAlerta extends DialogFragment {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(getActivity());
 
-        builder.setMessage("¿Desea enviar este mensaje? El mensaje se enviará desde un correo por defecto de la aplicación y quedará allí registrado.")
+        builder.setMessage("¿Desea enviar este mensaje? (Necesitas tener acceso a internet). El mensaje se enviará desde un correo por defecto de la aplicación y quedará allí registrado.")
                 .setTitle("Enviar correo")
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener()  {
                     public void onClick(DialogInterface dialog, int id) {

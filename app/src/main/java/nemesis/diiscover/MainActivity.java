@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import nemesis.BD.Consulta;
 
 
@@ -17,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MetodosAuxiliares a= new MetodosAuxiliares();
+        a.pasarURLaBlob("http://s2.subirimagenes.com/otros/previo/thump_9448102mena.jpg",2,"profesor");
+        a.pasarURLaBlob("http://s2.subirimagenes.com/otros/previo/thump_9448103campos.jpg",1,"profesor");
+        a.pasarURLaBlob("http://s2.subirimagenes.com/otros/previo/thump_9448090pellicer.jpg",3,"profesor");
     }
     public void irAAsignaturas(View vista) {
         Intent i = new Intent(this, CarreraListadoActivity.class);
@@ -60,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, IncidenciaActivity.class);
             startActivity(i);
             return true;
-        } 
+        }
         return super.onOptionsItemSelected(item);
     }
 

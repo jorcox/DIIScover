@@ -2,13 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="nemesis.diiscover.ProfesorListadoActivity"
-    android:background="#8cd3ff">
+    android:background="#ffffff">
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profesorText"
+        android:hint="Nombre del profesor"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/profesorlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true" />
+        android:layout_below="@+id/profesorText" />
 
 </RelativeLayout>

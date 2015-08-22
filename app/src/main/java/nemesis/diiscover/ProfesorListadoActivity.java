@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +24,9 @@ import nemesis.BD.Cursor;
 
 public class ProfesorListadoActivity extends AppCompatActivity {
     Consulta consulta=null; RecyclerView recList=null;
-
+    EditText profesor=null;
     ArrayList<Profesor> listaProfesores= new ArrayList();
+    ArrayList<Profesor> listaProfesorestotal= new ArrayList();
     static View.OnClickListener myOnClickListener;
     Long idAsignatura=new Long(-1);
     @Override
@@ -38,7 +42,8 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         MetodosAuxiliares Maux= new MetodosAuxiliares();
 
         recList = (RecyclerView) findViewById(R.id.profesorlist);
-        recList.setHasFixedSize(true);
+        profesor = (EditText) findViewById(R.id.profesorText);
+        //recList.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
@@ -74,7 +79,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
                 byte [] bytes = result.getBytes("imagen");
 
                 Profesor profesor= new Profesor ( id,  nombre, correo, tutorias,  despacho ,bytes);
-                listaProfesores.add(profesor);
+                listaProfesorestotal.add(profesor);
             }
 
 
@@ -83,8 +88,32 @@ public class ProfesorListadoActivity extends AppCompatActivity {
             String aa= a.toString();
 
         }
+        // evento del editText del profesor
+
+        profesor.setOnEditorActionListener(
+                new EditText.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                      try{
+                          if (actionId == EditorInfo.IME_ACTION_SEARCH ||
+                                  actionId == EditorInfo.IME_ACTION_DONE ||
+                                  event.getAction() == KeyEvent.ACTION_DOWN &&
+                                          event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                             if (!event.isShiftPressed()) {
+                                  //
+                                  filtradoProfesor( );
 
 
+                                  return true; // consume.
+                              }
+                          }
+
+                          return false; // pass on to other listeners.
+                      }catch(Exception A){}
+                        return false; // pass on to other listeners.
+                    }
+                });
+        filtradoProfesor( );
         ProfesorAdapter ca = new ProfesorAdapter(listaProfesores);
         recList.setAdapter(ca);
     }
@@ -145,5 +174,33 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         }
 
     }
+    public void filtradoProfesor (){
+        String filtroNombre=profesor.getText().toString();
+        listaProfesores=new ArrayList();
+        for (int i=0; i< listaProfesorestotal.size();i++){
+            if( listaProfesorestotal.get(i).nombre.contains(filtroNombre)){
+                listaProfesores.add(listaProfesorestotal.get(i));
+            }
+        }
+        ProfesorAdapter ca = new ProfesorAdapter(listaProfesores);
+        recList.setAdapter(ca);
+    }
+
+
+    protected void onSaveInstanceState(Bundle guardarEstado) {
+        super.onSaveInstanceState(guardarEstado);
+        guardarEstado.putString("textoProfe", profesor.getText().toString());
+
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle recEstado) {
+        super.onRestoreInstanceState(recEstado);
+        profesor.setText(recEstado.getString("textoProfe"));
+        filtradoProfesor();
+    }
+
+
 
 }
