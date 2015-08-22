@@ -23,7 +23,7 @@
         android:layout_height="200dp"
         android:text="asignaturas"
         android:id="@+id/Asignaturas"
-        android:drawableTop="@drawable/asignaturas2"
+        android:drawableTop="@drawable/books"
         style="?android:attr/borderlessButtonStyle"
 
         android:textColor="#03A9F4"
@@ -32,7 +32,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:elegantTextHeight="false" />
 
     <Button
         android:layout_width="175dp"
@@ -43,7 +44,7 @@
 
         android:textColor="#03A9F4"
         android:textSize="20dp"
-        android:drawableTop="@drawable/profesor2"
+        android:drawableTop="@drawable/profesor4"
         style="?android:attr/borderlessButtonStyle"
         android:layout_marginRight="10dp"
         android:text="profesores"
@@ -59,7 +60,7 @@
         android:textSize="20dp"
         android:id="@+id/ayudar"
         android:onClick="irAAyudar"
-        android:drawableTop="@drawable/mano2"
+        android:drawableTop="@drawable/mano4"
         style="?android:attr/borderlessButtonStyle"
         android:layout_marginRight="10dp"
         android:text="Ayúdanos"

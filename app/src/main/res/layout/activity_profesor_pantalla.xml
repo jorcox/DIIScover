@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="135dp"
         android:layout_height="135dp"
-        android:src="@drawable/profesor2"
+        android:src="@drawable/profesor3"
         android:id="@+id/imagenProfesor"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />

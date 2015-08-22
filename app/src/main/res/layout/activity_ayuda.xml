@@ -130,16 +130,6 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="2dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_alignParentStart="false"
-            android:hint="¿Qué te gustaría pder hacer/tener en la aplicación?"
-            android:textSize="15dp"
-            android:layout_below="@+id/checkBox"
-            android:layout_marginBottom="3dp"
-            android:layout_alignEnd="@+id/checkBox6" />
             </RelativeLayout>
 
 
@@ -167,6 +157,19 @@
                 android:singleLine="true"
                 android:layout_alignParentRight="true"
                 android:elegantTextHeight="false" />
+
+            <EditText
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:layout_alignParentStart="false"
+                android:hint="¿Qué te gustaría poder hacer/tener en la aplicación?"
+                android:textSize="15dp"
+                android:layout_below="@+id/checkBox"
+                android:layout_marginBottom="3dp"
+                android:layout_alignEnd="@+id/checkBox6"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="5dp" />
         </FrameLayout>
 
     </LinearLayout>

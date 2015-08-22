@@ -21,7 +21,7 @@
         android:layout_height="140dp"
         android:text="asignaturas"
         android:id="@+id/Asignaturas"
-        android:drawableLeft="@drawable/asignaturas2"
+        android:drawableLeft="@drawable/books"
         style="?android:attr/borderlessButtonStyle"
 
         android:textColor="#03A9F4"
@@ -39,7 +39,7 @@
 
         android:textColor="#03A9F4"
         android:textSize="20dp"
-        android:drawableLeft="@drawable/profesor2"
+        android:drawableLeft="@drawable/profesor4"
         style="?android:attr/borderlessButtonStyle"
         android:text="profesores"
         android:layout_below="@+id/laboratorios"
@@ -52,7 +52,7 @@
         android:textSize="20dp"
         android:id="@+id/ayudar"
         android:onClick="irAAyudar"
-        android:drawableLeft="@drawable/mano2"
+        android:drawableLeft="@drawable/mano4"
         style="?android:attr/borderlessButtonStyle"
         android:text="Ayúdanos"
         android:layout_alignTop="@+id/profesores"

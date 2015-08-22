@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MetodosAuxiliares a= new MetodosAuxiliares();
+        a.pasarURLaBlob("http://s2.subirimagenes.com/otros/previo/thump_9448102mena.jpg",2,"profesor");
+        a.pasarURLaBlob("http://s2.subirimagenes.com/otros/previo/thump_9448103campos.jpg",1,"profesor");
+        a.pasarURLaBlob("http://s2.subirimagenes.com/otros/previo/thump_9448090pellicer.jpg",3,"profesor");
     }
     public void irAAsignaturas(View vista) {
         Intent i = new Intent(this, CarreraListadoActivity.class);
