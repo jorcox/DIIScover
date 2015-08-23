@@ -7,12 +7,13 @@
     tools:context="nemesis.diiscover.ayudanosActivity"
     android:background="#ffffff">
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="220dp">
 
         <ScrollView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/scrollView"
@@ -130,36 +131,38 @@
             android:layout_below="@+id/checkBox5"
             android:layout_alignParentStart="true" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_alignParentStart="true"
-            android:hint="¿Qué te gustaría poder hacer/tener en la aplicación?"
-            android:textSize="15dp"
-            android:layout_below="@+id/checkBox"
-            android:layout_marginBottom="3dp"
-            android:layout_alignEnd="@+id/checkBox8" />
+
             </RelativeLayout>
 
 
     </ScrollView>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/boton_enviar_incidencia"
-            android:id="@+id/button"
-            android:layout_gravity="right"
-            android:layout_marginRight="15dp"
-            android:background="#03A9F4"
-            android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:onClick="EnviarSugerencia"
-            android:layout_alignParentBottom="true"
-            android:layout_alignEnd="@+id/scrollView"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="0.1" />
-    </LinearLayout>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton_enviar_incidencia"
+        android:id="@+id/button"
+
+        android:layout_marginRight="15dp"
+        android:background="#03A9F4"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:onClick="EnviarSugerencia"
+        android:layout_gravity="right"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="5dp" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:id="@+id/editText"
+        android:hint="¿Qué te gustaría poder hacer/tener en la aplicación?"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp" />
 
 </RelativeLayout>

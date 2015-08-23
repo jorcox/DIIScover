@@ -200,11 +200,18 @@ public class ProfesorListadoActivity extends AppCompatActivity {
     }
     public void filtradoProfesor (){
         String filtroNombre=profesor.getText().toString();
+        String [] palabras=filtroNombre.split(" ");
         listaProfesores=new ArrayList();
         for (int i=0; i< listaProfesorestotal.size();i++){
-            if( listaProfesorestotal.get(i).nombre.contains(filtroNombre)){
+            boolean esta=true;
+            for(int j=0; j<palabras.length;j++){
+                esta=esta && listaProfesorestotal.get(i).nombre.toLowerCase().contains(palabras[j].toLowerCase());
+            }
+
+            if( esta){
                 listaProfesores.add(listaProfesorestotal.get(i));
             }
+
         }
         ProfesorAdapter ca = new ProfesorAdapter(listaProfesores);
         recList.setAdapter(ca);
