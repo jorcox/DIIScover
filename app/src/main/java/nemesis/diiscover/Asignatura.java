@@ -16,10 +16,10 @@ public class Asignatura {
     protected int cuatrimestre=0;
     protected String aula="";
     protected String aulaExamen="";
-    protected Date fechaExamen=null;
+    protected String fechaExamen=null;
     //protected String fechaExamen="";
 
-    public Asignatura(int id,int idCarrera, String nombre, String criteros, String aula, String aulaExamen,int creditos, int cuatrimestre,Date fechaExamen,
+    public Asignatura(int id,int idCarrera, String nombre, String criteros, String aula, String aulaExamen,int creditos, int cuatrimestre,String fechaExamen,
                      String link, String descripcion){
         this.id=id;
         this.nombre=nombre;

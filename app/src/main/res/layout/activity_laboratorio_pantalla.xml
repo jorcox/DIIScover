@@ -21,11 +21,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Piso"
         android:id="@+id/textView4"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="20dp"
         android:layout_alignParentStart="true"
         android:textColor="#010101"
         android:textSize="20dp"
-        android:layout_below="@+id/imageView" />
+        android:layout_below="@+id/textView7" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -114,4 +114,16 @@
         android:layout_alignParentEnd="true"
         android:textSize="20dp"
         android:layout_marginTop="7dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Recuerda que si el laboratorio está cerrado, puedes pedir que te lo abran para trabajar"
+        android:id="@+id/textView7"
+        android:textColor="#696969"
+        android:textSize="20dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 </RelativeLayout>

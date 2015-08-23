@@ -123,7 +123,7 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
                 int idCarrera=result.getInt("id_carrera");
                 int creditos=result.getInt("creditos");
                 int cuatrimestre=result.getInt("cuatrimestre");
-                Date fechaExamen=result.getDate("fechaExamen");
+                String fechaExamen=result.getString("fechaExamen");
                 String nombre=result.getString("nombre");
                 String descripcion=result.getString("descripcion");
                 String criteros=result.getString("criteriosEvaluacion");
@@ -229,7 +229,7 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
                     int idCarrera=result.getInt("id_carrera");
                     int creditos=result.getInt("creditos");
                     int cuatrimestre=result.getInt("cuatrimestre");
-                    Date fechaExamen=result.getDate("fechaExamen");
+                    String fechaExamen=result.getString("fechaExamen");
                     String nombre=result.getString("nombre");
                     String descripcion=result.getString("descripcion");
                     String criteros=result.getString("criteriosEvaluacion");
