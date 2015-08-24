@@ -14,10 +14,11 @@ import nemesis.BD.Cursor;
 
 public class LaboratorioPantalla extends AppCompatActivity {
 
-    private Long id;
     private String nombre = "";
     private int piso = 0;
     private int numero = 0;
+    private long id = -1;
+    private int libres;
     private ArrayList<String> asignaturas = new ArrayList<>();
     private ImageView imagen;
     private TextView numeroView;
@@ -28,6 +29,7 @@ public class LaboratorioPantalla extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         Cursor cursorLab = null;
+        Cursor cursorNum = null;
         MetodosAuxiliares aux = new MetodosAuxiliares();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laboratorio_pantalla);
@@ -40,8 +42,6 @@ public class LaboratorioPantalla extends AppCompatActivity {
             cursorLab = aux.Consulta("SELECT * FROM diiscover.laboratorio where nombre = '" + nombre + "'");
         }
 
-
-
         try{
 
             ResultSet result = cursorLab.getResultSet ();
@@ -49,6 +49,7 @@ public class LaboratorioPantalla extends AppCompatActivity {
                 nombre = result.getString("nombre");
                 piso = result.getInt("piso");
                 numero = result.getInt("numero");
+                id = result.getLong("id");
                 /* Imagen por si se pone en el futuro */
                /* byte [] bytes = result.getBytes("imagen");
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
@@ -56,11 +57,17 @@ public class LaboratorioPantalla extends AppCompatActivity {
                 imagen.setImageBitmap(getCircularBitmapFrom(bitmap));*/
 
             }
+            cursorNum = aux.Consulta("SELECT COUNT(*) FROM diiscover.ordenador where libre=1 AND id_lab="+id);
+            ResultSet resultNum = cursorNum.getResultSet ();
+            resultNum.first();
+            libres = resultNum.getInt(1);
             setTitle(nombre);
             pisoView = (TextView)findViewById(R.id.textPiso);
             pisoView.setText(piso+"");
             numeroView = (TextView)findViewById(R.id.textNumero);
             numeroView.setText(numero+"");
+            numPcView = (TextView) findViewById(R.id.textPcLibre);
+            numPcView.setText(libres+"");
         }
         catch(Exception a){
             a.printStackTrace();
