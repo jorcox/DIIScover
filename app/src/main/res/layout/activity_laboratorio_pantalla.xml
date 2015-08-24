@@ -126,4 +126,16 @@
         android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/actualizar"
+        android:id="@+id/button2"
+        android:textColor="#03a9f4"
+        android:text="Actualizar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="actualizar" />
 </RelativeLayout>

@@ -1,11 +1,15 @@
 package nemesis.diiscover;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -96,5 +100,24 @@ public class LaboratorioPantalla extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void actualizar(View v){
+        Toast toast1 =
+                Toast.makeText(LaboratorioPantalla.this,
+                        "Actualizado, puede que vaya con unos segundos de retraso. Se necesita de Hendrix activo para poder obtener los ordenadores libres", Toast.LENGTH_SHORT);
+
+        toast1.show();
+        MetodosAuxiliares aux = new MetodosAuxiliares();
+        try{
+            Cursor cursorNum = aux.Consulta("SELECT COUNT(*) FROM diiscover.ordenador where libre=1 AND id_lab="+id);
+            ResultSet resultNum = cursorNum.getResultSet();
+            resultNum.first();
+            libres = resultNum.getInt(1);
+        }  catch(Exception a){
+            a.printStackTrace();
+        }
+
+
     }
 }
