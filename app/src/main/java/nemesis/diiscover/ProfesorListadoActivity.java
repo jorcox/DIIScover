@@ -58,14 +58,14 @@ public class ProfesorListadoActivity extends AppCompatActivity {
             if(infoComun.listaProfesorestotal==null || infoComun.listaProfesorestotal.size()==0){
                 //no se han buscado antes
                 obtenerprofes();
-                listaProfesorestotal= infoComun.listaProfesorestotal;
+
             }
             else{
                 //se han buscado antes
                 antes=true;
-                listaProfesorestotal= infoComun.listaProfesorestotal;
-            }
 
+            }
+            listaProfesorestotal= infoComun.listaProfesorestotal;
 
         }
         else{
