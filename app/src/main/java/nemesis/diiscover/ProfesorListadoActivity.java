@@ -269,6 +269,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
 
         } catch (Exception a) {
             String aa = a.toString();
+              aa = a.toString();
 
         }
 
