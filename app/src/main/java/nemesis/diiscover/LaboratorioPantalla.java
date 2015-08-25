@@ -40,10 +40,10 @@ public class LaboratorioPantalla extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         id = extras.getLong("idLab", -1);
         if (id != -1){
-            cursorLab = aux.Consulta("SELECT * FROM diiscover.laboratorio where id =" + id);
+            cursorLab = aux.Consulta("SELECT * FROM diiscover.laboratorio where id =" + id,2500);
         } else {
             nombre = extras.getString("nombre");
-            cursorLab = aux.Consulta("SELECT * FROM diiscover.laboratorio where nombre = '" + nombre + "'");
+            cursorLab = aux.Consulta("SELECT * FROM diiscover.laboratorio where nombre = '" + nombre + "'",2500);
         }
 
         try{
@@ -61,7 +61,7 @@ public class LaboratorioPantalla extends AppCompatActivity {
                 imagen.setImageBitmap(getCircularBitmapFrom(bitmap));*/
 
             }
-            cursorNum = aux.Consulta("SELECT COUNT(*) FROM diiscover.ordenador where libre=1 AND id_lab="+id);
+            cursorNum = aux.Consulta("SELECT COUNT(*) FROM diiscover.ordenador where libre=1 AND id_lab="+id,2500);
             ResultSet resultNum = cursorNum.getResultSet ();
             resultNum.first();
             libres = resultNum.getInt(1);
@@ -110,7 +110,7 @@ public class LaboratorioPantalla extends AppCompatActivity {
         toast1.show();
         MetodosAuxiliares aux = new MetodosAuxiliares();
         try{
-            Cursor cursorNum = aux.Consulta("SELECT COUNT(*) FROM diiscover.ordenador where libre=1 AND id_lab="+id);
+            Cursor cursorNum = aux.Consulta("SELECT COUNT(*) FROM diiscover.ordenador where libre=1 AND id_lab="+id,2500);
             ResultSet resultNum = cursorNum.getResultSet();
             resultNum.first();
             libres = resultNum.getInt(1);

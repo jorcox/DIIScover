@@ -81,7 +81,7 @@ public class InicioActivity extends AppCompatActivity {
         String passIntroducido = mPassText.getText().toString();
 
         //Cursor usuario = dbHelper.listarUsuarioNick(nickIntroducido);
-        Cursor usuario=maux.Consulta("SELECT * FROM Usuario WHERE correo = '"+correoIntroducido+"'");
+        Cursor usuario=maux.Consulta("SELECT * FROM Usuario WHERE correo = '"+correoIntroducido+"'",2500);
 
         //usuario o diiscover.usuario?
         try{

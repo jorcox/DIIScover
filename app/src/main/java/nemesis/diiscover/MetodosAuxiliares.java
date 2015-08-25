@@ -15,13 +15,13 @@ import nemesis.BD.SentenciaImagenPrepared;
  */
 
 public class MetodosAuxiliares {
-    public Cursor Consulta(String consulta){
+    public Cursor Consulta(String consulta, int tiempoEspera){
         Consulta consultaUsarios = new Consulta(consulta);
         consultaUsarios.execute();//mirar el metodo processFinish
         try{
            double tiempo=System.currentTimeMillis();
-            while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<3500 ) {
-                Thread.sleep(50);
+            while (consultaUsarios.cursor== null && Math.abs(tiempo-System.currentTimeMillis())<tiempoEspera ) {
+                Thread.sleep(120);
             }
 
 

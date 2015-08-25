@@ -81,7 +81,7 @@ public class RegistroActivity extends AppCompatActivity {
      */
     private void poblarCampos() {
         if (!mRowNombre.equals("")) {
-            Cursor usuario=maux.Consulta("SELECT * FROM Usuario WHERE correo = '" + mCorreoText.getText().toString() + "'");
+            Cursor usuario=maux.Consulta("SELECT * FROM Usuario WHERE correo = '" + mCorreoText.getText().toString() + "'",2500);
             mNombreText.setText(usuario.getString("nombre")); //no hay nombre
             mPassText.setText(usuario.getString("contrasena"));
             mCorreoText.setText(usuario.getString("correo"));
@@ -114,7 +114,7 @@ public class RegistroActivity extends AppCompatActivity {
         //Cursor usuarioCorreo = dbHelper.listarUsuario(correo);
         //Cursor usuarioNick = dbHelper.listarUsuarioNick(nick);
 
-        Cursor usuarioCorreo=maux.Consulta("SELECT * FROM Usuario WHERE correo = '" + correo + "'");
+        Cursor usuarioCorreo=maux.Consulta("SELECT * FROM Usuario WHERE correo = '" + correo + "'",2500);
 
 
         if (usuarioCorreo == null && !correo.equals("") && correo.contains("@") && correo.contains(".")  &&

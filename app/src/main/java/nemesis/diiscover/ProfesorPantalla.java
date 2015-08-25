@@ -40,9 +40,9 @@ public class ProfesorPantalla extends AppCompatActivity {
         id = extras.getLong("idProfesor", -1);
         MetodosAuxiliares Maux= new MetodosAuxiliares();
         Cursor cursorDatos=null;
-        cursorDatos=Maux.Consulta("SELECT * FROM profesor where id ="+id);
+        cursorDatos=Maux.Consulta("SELECT * FROM profesor where id ="+id,2500);
         Cursor cursorAsignaturas=null;
-        cursorAsignaturas=Maux.Consulta("SELECT * FROM rel_profesor_asignatura left join asignatura on  asignatura.id=rel_profesor_asignatura.id_asignatura where id_profesor ="+id);
+        cursorAsignaturas=Maux.Consulta("SELECT * FROM rel_profesor_asignatura left join asignatura on  asignatura.id=rel_profesor_asignatura.id_asignatura where id_profesor ="+id,2500);
 
         try{
 

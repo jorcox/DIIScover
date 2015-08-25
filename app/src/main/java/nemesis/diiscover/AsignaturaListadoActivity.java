@@ -73,7 +73,7 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
         /*
         Inicializas los Spinners (Este es el de los especialidad)
          */
-        Cursor cursorEspec=Maux.Consulta("SELECT * FROM especialidad where id_carrera="+idCar);
+        Cursor cursorEspec=Maux.Consulta("SELECT * FROM especialidad where id_carrera="+idCar,2500);
         try{
 
             ResultSet result= cursorEspec.getResultSet ();
@@ -103,9 +103,9 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
                 " asignatura.id,asignatura.linkExterno,asignatura.nombre from asignatura_especialidad ases" +
                 " left join asignatura asignatura on asignatura.id=ases.id_asignatura" +
                 " left join especialidad especialidad on especialidad.id=ases.id_especialidad"+
-                " where id_carrera="+idCar+" and especialidad.nombre  like '"+  especialidad.getSelectedItem().toString()
+                " where asignatura.id_carrera="+idCar+" and especialidad.nombre  like '"+  especialidad.getSelectedItem().toString()
                 +"' and asignatura.cuatrimestre="+ cuatrimestres.getSelectedItem().toString();
-        Cursor cursor=Maux.Consulta(consulta);
+        Cursor cursor=Maux.Consulta(consulta,2000);
         if (cursor == null) {
 
             Toast toast1 =
@@ -205,14 +205,15 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
 
             listaAsignaturas= new ArrayList();
             MetodosAuxiliares Maux= new MetodosAuxiliares();
+
             String consulta="Select especialidad.nombre as especialidad, asignatura.aula, asignatura.aulaExamen,asignatura.creditos," +
                     " asignatura.criteriosEvaluacion, asignatura.id_carrera,asignatura.cuatrimestre,asignatura.descripcion,asignatura.fechaExamen," +
                     " asignatura.id,asignatura.linkExterno,asignatura.nombre from asignatura_especialidad ases" +
                     " left join asignatura asignatura on asignatura.id=ases.id_asignatura" +
                     " left join especialidad especialidad on especialidad.id=ases.id_especialidad"+
-                    " where id_carrera="+idCar+" and especialidad.nombre  like '"+  especialidad.getSelectedItem().toString()
+                    " where asignatura.id_carrera="+idCar+" and especialidad.nombre  like '"+  especialidad.getSelectedItem().toString()
                     +"' and asignatura.cuatrimestre="+ cuatrimestres.getSelectedItem().toString();
-            Cursor cursor=Maux.Consulta(consulta);
+            Cursor cursor=Maux.Consulta(consulta,2000);
             if (cursor == null) {
 
                 Toast toast1 =
