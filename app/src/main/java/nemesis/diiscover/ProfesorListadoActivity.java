@@ -32,6 +32,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
     ArrayList<Profesor> listaProfesorestotal= new ArrayList();
     static View.OnClickListener myOnClickListener;
     Long idAsignatura=new Long(-1);
+    Cursor cursor=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         try{
              idAsignatura = extras.getLong("id", -1);
         }catch(Exception a){}
-
+        boolean antes=false;
         myOnClickListener = new MyOnClickListenerProfesor(this);
         MetodosAuxiliares Maux= new MetodosAuxiliares();
 
@@ -51,46 +52,47 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
         recList.setItemAnimator(new DefaultItemAnimator());
-        Cursor cursor=null;
-        if (idAsignatura==-1){
 
-             cursor=Maux.Consulta("SELECT * from profesor");
+        if (idAsignatura==-1){
+                obtenerprofes();
         }
         else{
 
-            cursor=Maux.Consulta("SELECT * FROM profesor left join  diiscover.rel_profesor_asignatura on profesor.id= rel_profesor_asignatura.id_profesor where id_asignatura ="+idAsignatura);
+            cursor=Maux.Consulta("SELECT * FROM profesor left join  diiscover.rel_profesor_asignatura on profesor.id= rel_profesor_asignatura.id_profesor where id_asignatura ="+idAsignatura+" order by nombre",4500);
             String nombreAsignatura=extras.getString("nombre", "");
             if (nombreAsignatura!=null && !nombreAsignatura.equals("")) setTitle(getTitle() + " de " +nombreAsignatura );
-        }
-        if (cursor == null) {
+            try{
 
-            Toast toast1 =
-                    Toast.makeText(getApplicationContext(),
-                            "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+                ResultSet result= cursor.getResultSet ();
+                while(result.next()){
+                    int id=result.getInt("id");
+                    String nombre=result.getString("nombre");
+                    String correo=result.getString("correo");
+                    String despacho=result.getString("despacho");
+                    String tutorias=result.getString("tutorias");
+                    byte[] bytes = result.getBytes("imagen");
 
-            toast1.show();
-        }
-        try{
+                    Profesor profesor = new Profesor(id, nombre, correo, tutorias, despacho, bytes);
+                    listaProfesorestotal.add(profesor);
+                }
 
-            ResultSet result= cursor.getResultSet ();
-            while(result.next()){
-                int id=result.getInt("id");
-                String nombre=result.getString("nombre");
-                String correo=result.getString("correo");
-                String despacho=result.getString("despacho");
-                String tutorias=result.getString("tutorias");
-                byte [] bytes = result.getBytes("imagen");
 
-                Profesor profesor= new Profesor ( id,  nombre, correo, tutorias,  despacho ,bytes);
-                listaProfesorestotal.add(profesor);
+            } catch (Exception a) {
+                String aa = a.toString();
+
             }
 
 
         }
-        catch(Exception a){
-            String aa= a.toString();
+        if (cursor == null) {
+                Toast toast1 =
+                        Toast.makeText(getApplicationContext(),
+                                "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
+
+                toast1.show();
 
         }
+
         // evento del editText del profesor
         profesor.addTextChangedListener(new TextWatcher() {
 
@@ -108,7 +110,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filtradoProfesor( );
+                filtradoProfesor();
 
             }
 
@@ -117,15 +119,15 @@ public class ProfesorListadoActivity extends AppCompatActivity {
                 new EditText.OnEditorActionListener() {
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                      try{
+                        try {
 
-                          if (actionId == EditorInfo.IME_ACTION_SEARCH ||
-                                  actionId == EditorInfo.IME_ACTION_DONE ||
-                                  event.getAction() == KeyEvent.ACTION_DOWN &&
-                                          event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-                             if (!event.isShiftPressed()) {
-                                  //
-                                  filtradoProfesor( );
+                            if (actionId == EditorInfo.IME_ACTION_SEARCH ||
+                                    actionId == EditorInfo.IME_ACTION_DONE ||
+                                    event.getAction() == KeyEvent.ACTION_DOWN &&
+                                            event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                                if (!event.isShiftPressed()) {
+                                    //
+                                    filtradoProfesor( );
 
 
                                   return true; // consume.
@@ -138,7 +140,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
                     }
                 });
         filtradoProfesor( );
-        ProfesorAdapter ca = new ProfesorAdapter(listaProfesores);
+        ProfesorAdapter ca = new ProfesorAdapter(listaProfesores,this);
         recList.setAdapter(ca);
     }
 
@@ -213,7 +215,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
             }
 
         }
-        ProfesorAdapter ca = new ProfesorAdapter(listaProfesores);
+        ProfesorAdapter ca = new ProfesorAdapter(listaProfesores,this);
         recList.setAdapter(ca);
     }
 
@@ -230,6 +232,33 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         super.onRestoreInstanceState(recEstado);
         profesor.setText(recEstado.getString("textoProfe"));
         filtradoProfesor();
+    }
+
+    public void obtenerprofes(){
+
+        MetodosAuxiliares Maux=new MetodosAuxiliares();
+        cursor=Maux.Consulta("SELECT * from profesor order by nombre",3000);
+        try{
+            ResultSet result= cursor.getResultSet ();
+            while(result.next()){
+                int id=result.getInt("id");
+                String nombre=result.getString("nombre");
+                String correo=result.getString("correo");
+                String despacho=result.getString("despacho");
+                String tutorias=result.getString("tutorias");
+                byte[] bytes = result.getBytes("imagen");
+
+                Profesor profesor = new Profesor(id, nombre, correo, tutorias, despacho, bytes);
+                listaProfesorestotal.add(profesor);
+            }
+
+
+        } catch (Exception a) {
+            String aa = a.toString();
+              aa = a.toString();
+
+        }
+
     }
 
 

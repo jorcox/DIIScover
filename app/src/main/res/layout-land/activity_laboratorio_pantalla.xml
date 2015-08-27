@@ -125,7 +125,21 @@
         android:id="@+id/textView7"
         android:textColor="#696969"
         android:textSize="20dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="15dp"
         android:layout_alignTop="@+id/imageView"
         android:layout_toEndOf="@+id/textView8" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/actualizar"
+        style="?android:attr/borderlessButtonStyle"
+
+        android:id="@+id/actualizar"
+        android:textColor="#03a9f4"
+        android:text="Actualizar"
+        android:layout_below="@+id/textView7"
+        android:layout_alignEnd="@+id/textView7"
+        android:layout_marginTop="10dp"
+        android:onClick="actualizar" />
 </RelativeLayout>

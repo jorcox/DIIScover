@@ -40,9 +40,9 @@ public class ProfesorPantalla extends AppCompatActivity {
         id = extras.getLong("idProfesor", -1);
         MetodosAuxiliares Maux= new MetodosAuxiliares();
         Cursor cursorDatos=null;
-        cursorDatos=Maux.Consulta("SELECT * FROM profesor where id ="+id);
+        cursorDatos=Maux.Consulta("SELECT * FROM profesor where id ="+id,2500);
         Cursor cursorAsignaturas=null;
-        cursorAsignaturas=Maux.Consulta("SELECT * FROM rel_profesor_asignatura left join asignatura on  asignatura.id=rel_profesor_asignatura.id_asignatura where id_profesor ="+id);
+        cursorAsignaturas=Maux.Consulta("SELECT * FROM rel_profesor_asignatura left join asignatura on  asignatura.id=rel_profesor_asignatura.id_asignatura where id_profesor ="+id,2500);
 
         try{
 
@@ -53,9 +53,15 @@ public class ProfesorPantalla extends AppCompatActivity {
                 correo=result.getString("correo");
                 despacho=result.getString("despacho");
                 byte [] bytes = result.getBytes("imagen");
-                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                imagen= (ImageView)findViewById(R.id.imagenProfesor);
-                imagen.setImageBitmap(getCircularBitmapFrom(bitmap));
+                try{
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    imagen= (ImageView)findViewById(R.id.imagenProfesor);
+                    imagen.setImageBitmap(getCircularBitmapFrom(bitmap));
+                }  catch(Exception a){
+                    String aa= a.toString();
+
+                }
+
 
             }
              result= cursorAsignaturas.getResultSet ();

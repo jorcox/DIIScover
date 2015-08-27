@@ -1,5 +1,6 @@
 package nemesis.diiscover;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,8 +21,9 @@ import java.util.List;
 public class ProfesorAdapter extends RecyclerView.Adapter<ProfesorViewHolder>{
     private List<Profesor> profesores;
     //constructor
-    public ProfesorAdapter(List<Profesor> profesores) {
-        this.profesores = profesores;
+    Context con=null;
+    public ProfesorAdapter(List<Profesor> profesores,Context cont) {
+        this.profesores = profesores;con=cont;
     }
     @Override
     //devuelve el numero de items en el adapter
@@ -43,6 +45,7 @@ public class ProfesorAdapter extends RecyclerView.Adapter<ProfesorViewHolder>{
         //cargo imagen
         try {
             byte[] data = profesor.imagen;
+           
             Bitmap bitmap = BitmapFactory.decodeByteArray(data , 0, data .length);
             contactViewHolder.imagen.setImageBitmap(getCircularBitmapFrom(bitmap));
         } catch (Exception ex) {

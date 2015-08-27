@@ -51,8 +51,8 @@ public class AsignaturaPantalla extends AppCompatActivity {
 
         MetodosAuxiliares Maux= new MetodosAuxiliares();
         Cursor cursor=null;
-        if(desdeBoton)cursor=Maux.Consulta("SELECT * FROM asignatura where nombre ='"+nombre+"'");
-        else cursor=Maux.Consulta("SELECT * FROM asignatura where id ="+id);
+        if(desdeBoton)cursor=Maux.Consulta("SELECT * FROM asignatura where nombre ='"+nombre+"'",2500);
+        else cursor=Maux.Consulta("SELECT * FROM asignatura where id ="+id,2500);
 
         try{
 

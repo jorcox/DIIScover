@@ -50,7 +50,7 @@ public class CarreraListadoActivity extends AppCompatActivity {
 
 
         Cursor cursor=Maux.Consulta("SELECT Carrera.nombre,Carrera.imagen,Carrera.descripcion,Carrera.linkExterno,Carrera.cuatrimestres ,Carrera.id,Carrera.coordinador, " +
-                "tipo_carrera.nombre as tipoCarrera FROM diiscover.carrera inner join tipo_carrera where id_tipo_carrera=tipo_carrera.id");
+                "tipo_carrera.nombre as tipoCarrera FROM diiscover.carrera inner join tipo_carrera where id_tipo_carrera=tipo_carrera.id",2500);
         if (cursor == null) {
 
             Toast toast1 =

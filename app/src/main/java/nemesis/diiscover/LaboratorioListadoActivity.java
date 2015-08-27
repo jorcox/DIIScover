@@ -37,7 +37,7 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
         myOnClickListener = new MyOnClickListenerLaboratorio(this);
 
         MetodosAuxiliares aux = new MetodosAuxiliares();
-        Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ");
+        Cursor cursor = aux.Consulta("SELECT Laboratorio.id, Laboratorio.nombre, Laboratorio.piso, Laboratorio.numero FROM diiscover.laboratorio ",2500);
         if (cursor == null) {
 
             Toast toast1 =
