@@ -54,19 +54,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         recList.setItemAnimator(new DefaultItemAnimator());
 
         if (idAsignatura==-1){
-            //todos los profesores
-            if(infoComun.listaProfesorestotal==null || infoComun.listaProfesorestotal.size()==0){
-                //no se han buscado antes
                 obtenerprofes();
-
-            }
-            else{
-                //se han buscado antes
-                antes=true;
-
-            }
-            listaProfesorestotal= infoComun.listaProfesorestotal;
-
         }
         else{
 
@@ -97,13 +85,11 @@ public class ProfesorListadoActivity extends AppCompatActivity {
 
         }
         if (cursor == null) {
-            if(!antes){
                 Toast toast1 =
                         Toast.makeText(getApplicationContext(),
                                 "No se pudo conectar con el servidor", Toast.LENGTH_SHORT);
 
                 toast1.show();
-            }
 
         }
 
@@ -251,7 +237,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
     public void obtenerprofes(){
 
         MetodosAuxiliares Maux=new MetodosAuxiliares();
-        cursor=Maux.Consulta("SELECT * from profesor order by nombre",6000);
+        cursor=Maux.Consulta("SELECT * from profesor order by nombre",3000);
         try{
             ResultSet result= cursor.getResultSet ();
             while(result.next()){
@@ -263,7 +249,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
                 byte[] bytes = result.getBytes("imagen");
 
                 Profesor profesor = new Profesor(id, nombre, correo, tutorias, despacho, bytes);
-                infoComun.listaProfesorestotal.add(profesor);
+                listaProfesorestotal.add(profesor);
             }
 
 

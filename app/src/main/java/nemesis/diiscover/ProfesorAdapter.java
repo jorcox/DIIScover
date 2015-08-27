@@ -45,9 +45,7 @@ public class ProfesorAdapter extends RecyclerView.Adapter<ProfesorViewHolder>{
         //cargo imagen
         try {
             byte[] data = profesor.imagen;
-            if(profesor.imagen==null){
-                contactViewHolder.imagen.setImageResource(con.getResources().getIdentifier("profesor.png", "drawable", con.getPackageName()));
-            }
+           
             Bitmap bitmap = BitmapFactory.decodeByteArray(data , 0, data .length);
             contactViewHolder.imagen.setImageBitmap(getCircularBitmapFrom(bitmap));
         } catch (Exception ex) {

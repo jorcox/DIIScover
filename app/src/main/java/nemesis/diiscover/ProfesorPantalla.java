@@ -53,9 +53,15 @@ public class ProfesorPantalla extends AppCompatActivity {
                 correo=result.getString("correo");
                 despacho=result.getString("despacho");
                 byte [] bytes = result.getBytes("imagen");
-                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                imagen= (ImageView)findViewById(R.id.imagenProfesor);
-                imagen.setImageBitmap(getCircularBitmapFrom(bitmap));
+                try{
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    imagen= (ImageView)findViewById(R.id.imagenProfesor);
+                    imagen.setImageBitmap(getCircularBitmapFrom(bitmap));
+                }  catch(Exception a){
+                    String aa= a.toString();
+
+                }
+
 
             }
              result= cursorAsignaturas.getResultSet ();

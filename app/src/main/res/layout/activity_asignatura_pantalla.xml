@@ -37,7 +37,6 @@
             android:layout_below="@+id/textView"
             android:layout_alignParentStart="true"
             android:padding="10dp"
-            android:height="100dp"
             android:textSize="15dp"
             android:layout_alignParentEnd="true"
             android:textColor="#757575" />
@@ -67,7 +66,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewtutoriasProfesor"
             android:padding="10dp"
-            android:height="100dp"
             android:textSize="15dp"
             android:layout_below="@+id/textViewcorreoProfesor"
             android:layout_alignParentStart="true"
