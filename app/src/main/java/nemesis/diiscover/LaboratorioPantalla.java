@@ -105,7 +105,7 @@ public class LaboratorioPantalla extends AppCompatActivity {
     public void actualizar(View v){
         Toast toast1 =
                 Toast.makeText(LaboratorioPantalla.this,
-                        "Actualizado, puede que vaya con unos segundos de retraso. Se necesita de Hendrix activo para poder obtener los ordenadores libres", Toast.LENGTH_SHORT);
+                        "La información se obtiene através de Hendrix, puede tener un retraso de un par de minutos.", Toast.LENGTH_SHORT);
 
         toast1.show();
         MetodosAuxiliares aux = new MetodosAuxiliares();
