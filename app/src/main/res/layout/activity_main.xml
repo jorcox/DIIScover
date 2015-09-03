@@ -6,7 +6,7 @@
     <Button
         android:layout_width="175dp"
         android:layout_height="200dp"
-        android:text="Laboratorios"
+        android:text="LABORATORIOS"
         android:id="@+id/laboratorios"
         android:drawableTop="@drawable/computer2"
         style="?android:attr/borderlessButtonStyle"
@@ -21,7 +21,7 @@
     <Button
         android:layout_width="175dp"
         android:layout_height="200dp"
-        android:text="asignaturas"
+        android:text="ASIGNATURAS"
         android:id="@+id/Asignaturas"
         android:drawableTop="@drawable/books"
         style="?android:attr/borderlessButtonStyle"
@@ -47,7 +47,7 @@
         android:drawableTop="@drawable/profesor4"
         style="?android:attr/borderlessButtonStyle"
         android:layout_marginRight="10dp"
-        android:text="profesores"
+        android:text="PROFESORES"
         android:layout_below="@+id/laboratorios"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="10dp"
@@ -63,7 +63,7 @@
         android:drawableTop="@drawable/mano4"
         style="?android:attr/borderlessButtonStyle"
         android:layout_marginRight="10dp"
-        android:text="Ayúdanos"
+        android:text="AYÚDANOS"
         android:layout_alignTop="@+id/profesores"
         android:layout_alignParentEnd="true" />
 

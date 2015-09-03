@@ -1,12 +1,18 @@
 package nemesis.diiscover;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Shader;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +23,7 @@ import android.widget.TextView;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import nemesis.BD.Cursor;
 
@@ -103,11 +110,35 @@ public class ProfesorPantalla extends AppCompatActivity {
         }
 
     }
-    public void irAEnviarCorreo(View vista) {
-        Intent i = new Intent(this, CorreoProfesor.class);
+    public void irAEnviarCorreo(View v) {
+      /*  Intent i = new Intent(this, CorreoProfesor.class);
         i.putExtra("profesor",nombre);
         i.putExtra("correo",correo);
         startActivity(i);
+*/
+
+
+
+
+
+        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{correo});
+        PackageManager pm = v.getContext().getPackageManager();
+        List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
+        for (final ResolveInfo app : activityList)
+        {
+            if ((app.activityInfo.name).contains("android.gm"))
+            {
+                final ActivityInfo activity = app.activityInfo;
+                final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
+                shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                shareIntent.setComponent(name);
+                v.getContext().startActivity(shareIntent);
+                break;
+            }
+        }
     }
 
     @Override
