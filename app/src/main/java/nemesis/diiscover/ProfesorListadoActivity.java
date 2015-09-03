@@ -207,7 +207,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
         for (int i=0; i< listaProfesorestotal.size();i++){
             boolean esta=true;
             for(int j=0; j<palabras.length;j++){
-                esta=esta && listaProfesorestotal.get(i).nombre.toLowerCase().contains(palabras[j].toLowerCase());
+                esta=esta && quitarTildes(listaProfesorestotal.get(i).nombre.toLowerCase()).contains(quitarTildes(palabras[j].toLowerCase()));
             }
 
             if( esta){
@@ -226,7 +226,9 @@ public class ProfesorListadoActivity extends AppCompatActivity {
 
 
     }
-
+    private String quitarTildes(String a){
+       return a.replace('á','a').replace('ú', 'u').replace('ó','o').replace('é','e').replace('í','i');
+    }
     @Override
     protected void onRestoreInstanceState(Bundle recEstado) {
         super.onRestoreInstanceState(recEstado);
