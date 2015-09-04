@@ -43,6 +43,7 @@ public class IncidenciaActivity extends AppCompatActivity {
                 usuario = getUsuario();
                 fecha = getFecha();
                 sentencia = generarInsert(usuario, fecha, descripcion);
+                android.util.Log.d("Sentencia", sentencia);
                 Sentencia insercion = new Sentencia(sentencia);
                 insercion.execute();
 
@@ -79,6 +80,7 @@ public class IncidenciaActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     /**
      * Dados el usuario que genera la incidencia, la fecha actual y la descripcion de la
      * incidencia, devuelve una sentencia SQL para insertar la incidencia en la base de datos.

@@ -19,6 +19,8 @@
     <string name="enviar_incidencia">Enviar incidencia</string>
     <string name="boton_enviar_incidencia">ENVIAR</string>
     <string name="hint_enviar_incidencia">Describe aquí la incidencia...</string>
+
+    <!-- Strings de titulo de Activity -->
     <string name="title_activity_laboratorio_listado_">Laboratorios</string>
     <string name="title_activity_asignatura_pantalla">AsignaturaPantalla</string>
     <string name="title_activity_profesor_lisatdo">Profesores</string>
@@ -28,5 +30,17 @@
     <string name="title_activity_perfil">Ayúdanos</string>
     <string name="title_activity_correo_profesor">Correo</string>
     <string name="title_activity_laboratorio_pantalla">laboratorioPantalla</string>
+
+    <!-- Strings de AcercaDeActivity -->
+    <string name="titulo_acerca_de">Acerca de DIIScover</string>
+    <string name="informacion_diiscover">DIIScover nace en las aulas de Ingeniería Informática
+        de la Escuela de Ingeniería y Arquitectura de Zaragoza, para facilitar a los estudiantes
+        la búsqueda de información relevante sobre sus estudios y sobre su día a día en la
+        universidad.</string>
+    <string name="titulo_desarrolladores">Desarrolladores</string>
+    <string name="desarrolladores">Íñigo Alonso Ruiz\nJavier Beltrán Jorba\nJorge Cáncer
+        Gil\nAlejandro Dieste Cortés</string>
+    <string name="titulo_diseñadora">Diseñadora</string>
+    <string name="diseñadora">Lara Pancorbo Lambán</string>
 
 </resources>

@@ -73,6 +73,9 @@
             android:name=".LaboratorioPantalla"
             android:label="@string/title_activity_laboratorio_pantalla" >
         </activity>
+        <activity
+            android:name=".AcercaDeActivity" >
+        </activity>
     </application>
 
 </manifest>
