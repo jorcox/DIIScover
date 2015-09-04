@@ -13,7 +13,7 @@
         android:id="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/computer2" />
+        android:src="@drawable/computer4" />
 
     <TextView
         android:layout_width="wrap_content"
