@@ -26,7 +26,7 @@ public class MailProfesores {
     private Context context;
     private static final String FROM = "diiscover.soporte@gmail.com";
     private static final String NOMBRE = "Diiscover";
-    private static final String PASSWORD = "jamarro1";
+    private static final String PASSWORD = "jamarro11";
     private  static String ASUNTO = "";
     private  static String to = "";
     private String mensaje;

@@ -98,8 +98,8 @@ public class JDBCTemplate {
         JDBCTemplate mysql = new JDBCTemplate(new MySQLConfiguration(prop.getProperty("database.mysql.host"),
                         prop.getProperty("database.mysql.port"),
                         prop.getProperty("database.mysql.dbname")),
-                        prop.getProperty("database.mysql.user"),
-                        prop.getProperty("database.mysql.password"));
+                Codificador.decodificar(prop.getProperty("database.mysql.user")),
+                               Codificador.decodificar(prop.getProperty("database.mysql.password")));
         mysql.connect();
         return mysql;
    }

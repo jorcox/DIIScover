@@ -24,7 +24,7 @@ public class Mail {
     private Context context;
     private static final String FROM = "diiscover.soporte@gmail.com";
     private static final String NOMBRE = "Detector de Incidencias";
-    private static final String PASSWORD = "jamarro1";
+    private static final String PASSWORD = "jamarro11";
     private static final String ASUNTO = "Detectada incidencia en DIIScover";
     private String mensaje;
 
