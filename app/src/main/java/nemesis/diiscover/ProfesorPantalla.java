@@ -30,16 +30,14 @@ import nemesis.BD.Cursor;
 public class ProfesorPantalla extends AppCompatActivity {
     private Long id;
     private String nombre="";
-    private String tutorias="";
-    private String correo="";
+     private String correo="";
     private String despacho="";
     private ArrayList <String> asignaturas = new ArrayList<>();
     private TextView despachoView;
     private ImageView imagen;
     private TextView asignaturasView;
     private TextView correoView;
-    private TextView tutoriasView;
-    @Override
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profesor_pantalla);
@@ -56,8 +54,7 @@ public class ProfesorPantalla extends AppCompatActivity {
             ResultSet result= cursorDatos.getResultSet ();
             while(result.next()){
                 nombre=result.getString("nombre");
-                tutorias=result.getString("tutorias");
-                correo=result.getString("correo");
+                 correo=result.getString("correo");
                 despacho=result.getString("despacho");
                 byte [] bytes = result.getBytes("imagen");
                 try{
@@ -84,8 +81,6 @@ public class ProfesorPantalla extends AppCompatActivity {
 
         try{
             setTitle(nombre);
-            tutoriasView= (TextView)findViewById(R.id.textViewtutoriasProfesor);
-            tutoriasView.setText(tutorias);
             despachoView= (TextView)findViewById(R.id.textViewDespachoProfesor);
             despachoView.setText(despacho);
 

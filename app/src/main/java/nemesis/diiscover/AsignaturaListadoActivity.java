@@ -73,7 +73,7 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
         /*
         Inicializas los Spinners (Este es el de los especialidad)
          */
-        Cursor cursorEspec=Maux.Consulta("SELECT * FROM especialidad where id_carrera="+idCar,2500);
+        Cursor cursorEspec=Maux.Consulta("SELECT * FROM especialidad where id_carrera="+idCar,3500);
         try{
 
             ResultSet result= cursorEspec.getResultSet ();
