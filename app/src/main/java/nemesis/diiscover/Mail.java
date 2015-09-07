@@ -3,8 +3,10 @@ package nemesis.diiscover;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
+import java.sql.ResultSet;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -16,6 +18,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import nemesis.BD.Cursor;
+
 /**
  * Contiene la utilidad de envio automatico de emails.
  */
@@ -24,7 +28,7 @@ public class Mail {
     private Context context;
     private static final String FROM = "diiscover.soporte@gmail.com";
     private static final String NOMBRE = "Detector de Incidencias";
-    private static final String PASSWORD = "jamarro11";
+    private static  String PASSWORD = "";
     private static final String ASUNTO = "Detectada incidencia en DIIScover";
     private String mensaje;
 
@@ -41,9 +45,20 @@ public class Mail {
      * correo electronico.
      */
     public void enviar() {
-        Session session = createSessionObject();
+
 
         try {
+            MetodosAuxiliares Maux= new MetodosAuxiliares();
+
+            Cursor cursor=Maux.Consulta("SELECT * from pswd where nombre='correo'",1500);
+            if (cursor != null) {
+                ResultSet result= cursor.getResultSet ();
+                result.next();
+                PASSWORD=result.getString("pswd");
+                ;
+            }
+
+            Session session = createSessionObject();
             Message message = createMessage(FROM, ASUNTO, mensaje, session);
             new SendMailTask(context).execute(message);
         } catch (AddressException e) {
@@ -53,6 +68,8 @@ public class Mail {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        catch (Exception e) {
+         }
     }
 
     /**

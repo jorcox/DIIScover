@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
+import java.sql.ResultSet;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -18,6 +19,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import nemesis.BD.Cursor;
+
 /**
  * Contiene la utilidad de envio automatico de emails.
  */
@@ -26,7 +29,7 @@ public class MailProfesores {
     private Context context;
     private static final String FROM = "diiscover.soporte@gmail.com";
     private static final String NOMBRE = "Diiscover";
-    private static final String PASSWORD = "jamarro11";
+    private static  String PASSWORD = "";
     private  static String ASUNTO = "";
     private  static String to = "";
     private String mensaje;
@@ -44,8 +47,18 @@ public class MailProfesores {
     public void enviar(Activity actividad) {
         Session session = createSessionObject();
 
-        try {
-            Message message = createMessage(FROM, ASUNTO, mensaje, session);
+            try {
+                MetodosAuxiliares Maux= new MetodosAuxiliares();
+
+                Cursor cursor=Maux.Consulta("SELECT * from pswd where nombre='correo'",1500);
+                if (cursor != null) {
+                    ResultSet result= cursor.getResultSet ();
+                    result.next();
+                    PASSWORD=result.getString("pswd");
+                    ;
+                }
+
+                Message message = createMessage(FROM, ASUNTO, mensaje, session);
             Toast toast1 =
                     Toast.makeText(context,
                             "Enviando..", Toast.LENGTH_SHORT);
@@ -77,6 +90,8 @@ public class MailProfesores {
             toast1.show();
             e.printStackTrace();
         }
+            catch (Exception e) {
+            }
     }
 
     /**
