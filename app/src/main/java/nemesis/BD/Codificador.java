@@ -1,5 +1,8 @@
 package nemesis.BD;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
 /**
  * Created by inigo on 04/09/2015.
  */

@@ -239,7 +239,7 @@ public class ProfesorListadoActivity extends AppCompatActivity {
     public void obtenerprofes(){
 
         MetodosAuxiliares Maux=new MetodosAuxiliares();
-        cursor=Maux.Consulta("SELECT * from profesor order by nombre",3000);
+        cursor=Maux.Consulta("SELECT * from profesor order by nombre",4000);
         try{
             ResultSet result= cursor.getResultSet ();
             while(result.next()){

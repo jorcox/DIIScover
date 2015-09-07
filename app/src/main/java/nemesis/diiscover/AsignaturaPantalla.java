@@ -17,8 +17,7 @@ public class AsignaturaPantalla extends AppCompatActivity {
     private String nombre="";
     private int creditos=0;
     private String criterios="";
-    private String descripcion="";
-    private String aulaExamen="";
+     private String aulaExamen="";
     private String aula="";
     private String linkExterno="";
     private String fechaExamen=null;
@@ -27,7 +26,6 @@ public class AsignaturaPantalla extends AppCompatActivity {
     private TextView creditosView;
     private TextView criteriosView;
     private TextView fechaExamenView;
-    private TextView descripcionView;
 
 
     @Override
@@ -62,8 +60,7 @@ public class AsignaturaPantalla extends AppCompatActivity {
                  id=result.getLong("id");
                   creditos=result.getInt("creditos");
                   criterios=result.getString("criteriosEvaluacion");
-                  descripcion=result.getString("descripcion");
-                  aulaExamen=result.getString("aulaExamen");
+                   aulaExamen=result.getString("aulaExamen");
                   linkExterno=result.getString("linkExterno");
                   fechaExamen=result.getString("fechaExamen");
                   aula=result.getString("aula");
@@ -86,8 +83,6 @@ public class AsignaturaPantalla extends AppCompatActivity {
             criteriosView.setText(criterios);
             fechaExamenView= (TextView)findViewById(R.id.textViewFechaExamenAsignatura);
             fechaExamenView.setText(fechaExamen.toString());
-            descripcionView= (TextView)findViewById(R.id.textViewDescripcionAsignatura);
-            descripcionView.setText(descripcion);
         }
         catch(Exception a){
             String aa= a.toString();

@@ -17,30 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Descripción"
-            android:id="@+id/textView"
-            android:padding="10dp"
-            android:textAlignment="center"
-            android:textIsSelectable="false"
-            android:textSize="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewDescripcionAsignatura"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:padding="10dp"
-            android:textSize="15dp"
-            android:layout_alignParentEnd="true"
-            android:textColor="#757575" />
-
              <View
                  android:layout_width="fill_parent"
                  android:layout_height="0.5dp"
@@ -53,24 +29,27 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Criterios de evaluación"
+            android:layout_below="@+id/textView9"
+
             android:id="@+id/textViewcorreoProfesor"
-            android:padding="10dp"
+            android:layout_marginTop="30dp"
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="20dp"
-            android:layout_below="@+id/textViewDescripcionAsignatura"
             android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewtutoriasProfesor"
-            android:padding="10dp"
             android:textSize="15dp"
             android:layout_below="@+id/textViewcorreoProfesor"
             android:layout_alignParentStart="true"
-            android:layout_alignEnd="@+id/textViewDescripcionAsignatura"
-            android:textColor="#757575" />
+            android:textColor="#757575"
+            android:layout_alignParentEnd="true"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp" />
              <View
                  android:layout_width="fill_parent"
                  android:layout_height="0.5dp"
@@ -84,12 +63,15 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Aula"
             android:id="@+id/textView5"
-            android:padding="10dp"
             android:textAlignment="center"
             android:textIsSelectable="false"
             android:textSize="18dp"
-            android:layout_below="@+id/textViewtutoriasProfesor"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="10dp"
+            android:paddingTop="15dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -19,8 +19,6 @@ import java.sql.ResultSet;
 import nemesis.BD.Codificador;
 import nemesis.BD.Consulta;
 import nemesis.BD.Cursor;
-
-
 public class MainActivity extends AppCompatActivity {
     TextView text=null;Consulta consultaUsarios=null;
     @Override
@@ -28,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
-
-
     }
     public void irAAsignaturas(View vista) {
         Intent i = new Intent(this, CarreraListadoActivity.class);
