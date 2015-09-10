@@ -27,11 +27,15 @@
         android:layout_marginTop="10dp" />
     <Spinner
         android:id="@+id/spinnerespecialidad"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
+        android:textSize="14dp"
+
         android:layout_height="wrap_content"
         android:layout_below="@+id/TextViewEspecilialidad"
         android:layout_alignParentStart="true" />
     <Spinner
+        android:textSize="14dp"
+
         android:id="@+id/spinnercuatri"
         android:layout_width="wrap_content"
         android:layout_marginLeft="2dp"

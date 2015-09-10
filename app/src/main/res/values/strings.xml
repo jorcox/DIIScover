@@ -29,7 +29,7 @@
     <string name="title_activity_profesor_pantalla">Profesor</string>
     <string name="title_activity_perfil">Ayúdanos</string>
     <string name="title_activity_correo_profesor">Correo</string>
-    <string name="title_activity_laboratorio_pantalla">laboratorioPantalla</string>
+    <string name="title_activity_laboratorio_pantalla">Laboratorio</string>
 
     <!-- Strings de AcercaDeActivity -->
     <string name="titulo_acerca_de">Acerca de DIIScover</string>

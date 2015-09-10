@@ -159,5 +159,14 @@ public class CarreraListadoActivity extends AppCompatActivity {
         }
 
     }
+    protected void onRestoreInstanceState(Bundle recEstado) {
+        super.onRestoreInstanceState(recEstado);
+    }
+
+    protected void onSaveInstanceState(Bundle guardarEstado) {
+        super.onSaveInstanceState(guardarEstado);
+
+
+    }
 
 }

@@ -84,7 +84,15 @@ public class LaboratorioListadoActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_laboratorio_listado_, menu);
         return true;
     }
+    protected void onRestoreInstanceState(Bundle recEstado) {
+        super.onRestoreInstanceState(recEstado);
+    }
 
+    protected void onSaveInstanceState(Bundle guardarEstado) {
+        super.onSaveInstanceState(guardarEstado);
+
+
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

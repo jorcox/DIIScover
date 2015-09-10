@@ -110,7 +110,7 @@ public class LaboratorioPantalla extends AppCompatActivity {
         toast1.show();
         MetodosAuxiliares aux = new MetodosAuxiliares();
         try{
-            Cursor cursorNum = aux.Consulta("SELECT COUNT(*) FROM diiscover.ordenador where libre=1 AND id_lab="+id,2500);
+            Cursor cursorNum = aux.Consulta("SELECT COUNT(*) FROM diiscover.ordenador where libre=1 AND id_lab=" + id, 2500);
             ResultSet resultNum = cursorNum.getResultSet();
             resultNum.first();
             libres = resultNum.getInt(1);
@@ -120,4 +120,18 @@ public class LaboratorioPantalla extends AppCompatActivity {
 
 
     }
+
+    protected void onSaveInstanceState(Bundle guardarEstado) {
+        super.onSaveInstanceState(guardarEstado);
+        guardarEstado.putString("nombre",nombre);
+
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle recEstado) {
+        super.onRestoreInstanceState(recEstado);
+    setTitle(nombre);
+     }
+
 }

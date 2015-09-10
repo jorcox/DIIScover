@@ -266,6 +266,15 @@ public class AsignaturaListadoActivity extends AppCompatActivity {
             // TODO Auto-generated method stub
         }
     }
+    protected void onRestoreInstanceState(Bundle recEstado) {
+        super.onRestoreInstanceState(recEstado);
+    }
+
+    protected void onSaveInstanceState(Bundle guardarEstado) {
+        super.onSaveInstanceState(guardarEstado);
+
+
+    }
     /**
      * Listeners de los cardviews para cuadno los clican
      */
